@@ -1,0 +1,407 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+<h4>Submit Recommendation</h4>
+
+{% endblock %}
+
+{% block main %}
+
+    <body>
+
+        <h2>
+            <p>
+                Lookup title before submiting your recommendation to prevent duplication
+                <select class="inline7" id="title" name="title">
+                    <option disabled selected value="Title">Title</option>
+                    {% for review in reviews %}
+                    <option disabled value="{{review['title']}}">{{review["title"]}}</option>
+                    {% endfor %}
+                </select>
+            </p>
+            If title already exists return to our <a class="link" href="/"> Homepage </a>
+        </h2>
+
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+        <div class="submitit">
+            <div class="dropdown-menu">
+                <select name="category" class="category" id="category" value="" onchange="choose('category')">
+                    <option class="category" disabled selected value="">Category</option>
+                    <option class="category" value="Book" id="Book">Book</option>
+                    <option class="category" value="Movie" id="Movie">Movie</option>
+                    <option class="category" value="Series" id="Series">Series</option>
+                </select>
+            </div>
+        </div>
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+        <form action="/submit" method="post" class="submit" id="form1" style="display: none" enctype="multipart/form-data">
+
+            <div id="Book" name="Book" value="Book"></div>
+
+            <div class="uploadimage">
+                <input type="file"  accept="image/*" name="image" id="image" onchange="loadFile(event)" style="display: none;" required>
+                <label for="image" class="imagelabel" id="imagelabel"><h6>Upload Image</h6></label>
+                <image id="actualimage" name="actualimage" class="actualimage"></image>
+            </div>
+
+            <script>
+                var loadFile = function(event) {
+                    var image = document.getElementById('actualimage');
+                    
+                    // https://www.geeksforgeeks.org/creating-a-simple-image-editor-using-javascript/
+                    image.src = URL.createObjectURL(event.target.files[0]);
+
+                    var imagelabel = document.getElementById('imagelabel');
+                    imagelabel.style.display = "none"
+                };
+            </script>
+
+            <br></br>
+            <br></br>
+
+            <div style="display: none">
+                <input class="form" id="type" name="type" value="Book">Book</input>
+            </div>
+
+            <div>
+                <h6>Title:</h6>
+                <input class="form" id="title" name="title" placeholder="Title" type="text" autocomplete="off" required>
+            </div>
+
+            <div>
+                <h6>Year:</h6>
+                <input class="form" id="year" name="year" placeholder="Year" type="text" autocomplete="off" required>
+            </div>
+
+            <div>
+                <h6>Author:</h6>
+                <input class="form" id="author" name="author" placeholder="Author" type="text" autocomplete="off" required>
+            </div>
+
+            <div>
+                <h6>Author's Origin</h6>
+                <div>
+                    <input class="inline1" id=" Acity" name="Acity" placeholder="City" type="text" autocomplete="off" required>
+                    <select class="inline2" id=" Acountry" name="Acountry" required>
+                        <option disabled selected value="">Country</option>
+                        {% for country in countries %}
+                        <option required>{{country["country"]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <h6>Novel's Setting (Location)</h6>
+                <div>
+                    <input class="inline1" id="Scity" name="Scity" placeholder="City" type="text" autocomplete="off" required>
+                    <select class="inline2" id="Scountry" name="Scountry" required>
+                        <option disabled selected value="">Country</option>
+                        {% for country in countries %}
+                        <option required>{{country["country"]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <h6>Description</h6>
+                <textarea class="form2" id="description" name="description" placeholder="Description" type="text" autocomplete="off" maxlength="1000" required></textarea>
+            </div>
+
+            <div class="form" id="list" name="list">
+                <h6>Main Characters</h6>
+
+                <div>
+                    <input class="form" placeholder="Character" type="text" id="person" name="person" autocomplete="off" required />
+                </div>
+
+                <br></br>
+
+                <div id="characters" name="characters"></div>
+
+                <button id="btn" class="btn" onclick="addcharacter()" type="button">Add Character</button>
+
+                <script>
+                    function addcharacter()
+                    {
+                        const newcharacter = '<input class="form" type="text" placeholder="Character" id="character" name="character" autocomplete="off" required>';
+                        document.getElementById('characters').innerHTML += newcharacter;
+                        const button = document.getElementById('btn')
+                        button.style.display = "none"
+                    }
+                </script>
+
+            </div>
+
+            <br></br>
+            <br></br>
+
+            <button class="btn" type="submit">Submit Recommendation</button>
+
+        </form>
+
+
+
+        <form action="/submit" method="post" class="submit" id="form2" style="display: none" enctype="multipart/form-data">
+
+            <div id="Movie" name="Movie" value="Movie"></div>
+
+            <div class="uploadimage2">
+                <input type="file"  accept="image/*" name="image2" id="image2" onchange="loadFile2(event)" style="display: none;" required>
+                <label for="image2" class="imagelabel2" id="imagelabel2"><h6>Upload Image</h6></label>
+                <image id="actualimage2" name="actualimage2" class="actualimage2"></image>
+            </div>
+
+            <script>
+                var loadFile2 = function(event) {
+                    var image = document.getElementById('actualimage2');
+                    image.src = URL.createObjectURL(event.target.files[0]);
+
+                    var imagelabel = document.getElementById('imagelabel2');
+                    imagelabel.style.display = "none"
+                };
+            </script>
+
+            <br></br>
+            <br></br>
+
+            <div style="display: none">
+                <input class="form" id="type" name="type" value="Movie">Movie</input>
+            </div>
+
+            <div>
+                <h6>Title:</h6>
+                <input class="form" id="title" name="title" placeholder="Title" type="text" autocomplete="off" required>
+            </div>
+
+            <div>
+                <h6>Year:</h6>
+                <input class="form" id="year" name="year" placeholder="Year" type="text" autocomplete="off" required>
+            </div>
+
+            <div>
+                <h6>Screenwriter:</h6>
+                <input class="form" id="screenwriter" name="screenwriter" placeholder="Screenwriter" type="text" autocomplete="off" required>
+            </div>
+
+            <div>
+                <h6>Screenwriter's Origin</h6>
+                <div>
+                    <input class="inline1" id=" Acity" name="Acity" placeholder="City" type="text" autocomplete="off" required>
+                    <select class="inline2" id=" Acountry" name="Acountry" required>
+                        <option disabled selected value="">Country</option>
+                        {% for country in countries %}
+                        <option required>{{country["country"]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <h6>Movie's Setting (Location)</h6>
+                <div>
+                    <input class="inline1" id="Scity" name="Scity" placeholder="City" type="text" autocomplete="off" required>
+                    <select class="inline2" id="Scountry" name="Scountry" required>
+                        <option disabled selected value="">Country</option>
+                        {% for country in countries %}
+                        <option required>{{country["country"]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <h6>Description</h6>
+                <textarea class="form2" id="description" name="description" placeholder="Description" type="text" autocomplete="off" maxlength="1000" required></textarea>
+            </div>
+
+            <div class="form" id="list" name="list">
+                <h6>Main Cast Members</h6>
+
+                <div>
+                    <input class="form" placeholder="Cast Member" type="text" id="person" name="person" autocomplete="off" required />
+                </div>
+
+                <br></br>
+
+                <div id="cast members" name="cast members"></div>
+
+                <button id="bbtn" class="btn" onclick="addcast()" type="button">Add Cast Member</button>
+
+                <script>
+                    function addcast()
+                    {
+                        const newcastmember = '<input class="form" type="text" placeholder="Cast Member" id="cast member" name="cast member" autocomplete="off" required>';
+                        document.getElementById('cast members').innerHTML += newcastmember;
+                        const button = document.getElementById('bbtn')
+                        button.style.display = "none"
+                    }
+                </script>
+
+            </div>
+
+            <br></br>
+            <br></br>
+
+            <button class="btn" type="submit">Submit Recommendation</button>
+
+        </form>
+
+
+
+        <form action="/submit" method="post" class="submit" id="form3" style="display: none" enctype="multipart/form-data">
+
+            <div id="Series" name="Series" value="Series"></div>
+
+            <div class="uploadimage3">
+                <input type="file"  accept="image/*" name="image3" id="image3" onchange="loadFile3(event)" style="display: none;" required>
+                <label for="image3" class="imagelabel3" id="imagelabel3"><h6>Upload Image</h6></label>
+                <image id="actualimage3" name="actualimage3" class="actualimage3"></image>
+            </div>
+
+            <script>
+                var loadFile3 = function(event) {
+                    var image = document.getElementById('actualimage3');
+                    image.src = URL.createObjectURL(event.target.files[0]);
+
+                    var imagelabel = document.getElementById('imagelabel3');
+                    imagelabel.style.display = "none"
+                };
+            </script>
+
+            <br></br>
+            <br></br>
+
+            <div style="display: none">
+                <input class="form" id="type" name="type" value="Serie">Series</input>
+            </div>
+
+            <div>
+                <h6>Title:</h6>
+                <input class="form" id="title" name="title" placeholder="Title" type="text" autocomplete="off" required>
+            </div>
+
+            <div>
+                <h6>Year:</h6>
+                <input class="form" id="year" name="year" placeholder="Year" type="text" autocomplete="off" required>
+            </div>
+
+            <div>
+                <h6>Screenwriter:</h6>
+                <input class="form" id="screenwriter" name="screenwriter" placeholder="Screenwriter" type="text" autocomplete="off" required>
+            </div>
+
+            <div>
+                <h6>Screenwriter's Origin</h6>
+                <div>
+                    <input class="inline1" id=" Acity" name="Acity" placeholder="City" type="text" autocomplete="off" required>
+                    <select class="inline2" id=" Acountry" name="Acountry" required>
+                        <option disabled selected value="">Country</option>
+                        {% for country in countries %}
+                        <option required>{{country["country"]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <h6>Series' Setting (Location)</h6>
+                <div>
+                    <input class="inline1" id="Scity" name="Scity" placeholder="City" type="text" autocomplete="off" required>
+                    <select class="inline2" id="Scountry" name="Scountry" required>
+                        <option disabled selected value="">Country</option>
+                        {% for country in countries %}
+                        <option required>{{country["country"]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <h6>Description</h6>
+                <textarea class="form2" id="description" name="description" placeholder="Description" type="text" autocomplete="off" maxlength="1000" required></textarea>
+            </div>
+
+            <div class="form" id="list" name="list">
+                <h6>Main Cast Members</h6>
+
+                <div>
+                    <input class="form" placeholder="Cast Member" type="text" id="person" name="person" autocomplete="off" required />
+                </div>
+
+                <br></br>
+
+                <div id="cast members2" name="cast members2"></div>
+
+                <button id="bbtnn" class="btn" onclick="addcastmember()" type="button">Add Cast Member</button>
+
+                <script>
+
+                    function addcastmember()
+                    {
+                        const newcastmember = '<input class="form" type="text" placeholder="Cast Member" id="cast member" name="cast member" autocomplete="off" required>';
+                        document.getElementById('cast members2').innerHTML += newcastmember;
+                        const button = document.getElementById('bbtnn')
+                        button.style.display = "none"
+                    }
+
+                </script>
+            </div>
+
+            <br></br>
+            <br></br>
+
+            <button class="btn" type="submit">Submit Recommendation</button>
+
+        </form>
+
+    </body>
+
+    <br></br>
+    <br></br>
+
+    <script>
+
+        function choose(category)
+        {
+            var option = document.getElementById('category').value;
+
+            var form1 = document.getElementById('form1');
+            var form2 = document.getElementById('form2');
+            var form3 = document.getElementById('form3');
+
+            if (option == 'Book')
+            {
+                form1.style.display = "block";
+                form2.style.display = "none";
+                form3.style.display = "none";
+            }
+            else if (option == 'Movie')
+            {
+                form2.style.display = "block";
+                form1.style.display = "none";
+                form3.style.display = "none";
+            }
+            else if (option == 'Series')
+            {
+                form3.style.display = "block";
+                form1.style.display = "none";
+                form2.style.display = "none";
+            }
+        }
+
+    </script>
+
+{% endblock %}

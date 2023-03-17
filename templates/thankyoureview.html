@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+<h4>Thank you for your review</h4>
+
+{% endblock %}
+
+{% block main %}
+
+    <br></br>
+    <br></br>
+
+    <div class="messagebox">
+        <message class="message">Thank you for reviewing <text class="link">"{{title}}"</text></message>
+        <br></br>
+        <br></br>
+        <message class="message"> To read others' reviews return to <a class="link" href="/reviews"> Reviews </a> </message>
+        <br></br>
+        <br></br>
+        <br></br>
+    </div>
+
+{% endblock %}

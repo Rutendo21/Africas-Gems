@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <script>
+
+            function menushow()
+            {
+                var menu = document.getElementById("menu");
+
+                if (menu.style.display == "none")
+                {
+                    menu.style.display = "block";
+                }
+                else
+                {
+                    menu.style.display = "none";
+                }
+            }
+
+            function menuhide()
+            {
+                var menu = document.getElementById("menu");
+
+                if (menu.style.display == "block")
+                {
+                    menu.style.display = "none";
+                }
+                else
+                {
+                    menu.style.display = "block";
+                }
+            }
+        </script>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, width=device-width">
+
+        <link href="/static/africa.jpg" rel="icon">
+
+        <link href="/static/styles.css" rel="stylesheet">
+
+
+        <title>Africa's Gems</title>
+
+        <header>
+
+            <image src="/static/africa.jpg" id="nav-icon" rel="image" onclick="menushow()"></image>
+
+            <!-- https://www.geeksforgeeks.org/bootstrap-4-navigation-bar/ -->
+
+            <nav id="menu" style="display: none">
+
+                <image src="/static/africa.jpg" id="nav-icon2" rel="image" onclick="menuhide()"></image>
+
+                <h3>Africa's Gems</h3>
+
+                <br></br>
+
+                <ul class="navbar-nav">
+                    <br></br>
+                    <li class="nav-item"><a class="nav-link" href="/">Catologue</a></li>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <li class="nav-item"><a class="nav-link" href="/search">Search</a></li>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <li class="nav-item"><a class="nav-link" href="/submit">Recommend</a></li>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <li class="nav-item"><a class="nav-link" href="/review">Review Recommendation</a></li>
+                </ul>
+            </nav>
+
+            <h1>Africa's Gems</h1>
+
+            <h2>
+                Books to read + Movies and Series to watch as you travel through Africa, physically or virtually. Recommendations are location based.
+            </h2>
+
+        </header>
+
+    </head>
+
+    <br></br>
+
+    <body>
+        <main>
+
+            <br></br>
+
+            {% block title %}{% endblock %}
+
+            <br></br>
+
+            {% block main %}{% endblock %}
+
+        </main>
+    </body>
+
+    <footer>
+        <div>
+            <image id="flag" rel="icon" src="/static/flags/Cameroon.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Somalia.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Nigeria.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Zimbabwe.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Mauritius.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Liberia.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Kenya.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Benin.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Angola.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Morroco.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Uganda.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Botswana.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Burkino Faso.ico"></image>
+            <image id="flag" rel="icon"src="/static/flags/Namibia.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Burundi.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Ghana.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Djibouti.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/South Africa.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Malawi.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Congo.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Ethopia.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Mozambique.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Senegal.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Libya.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Tanzania.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Algeria.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Niger.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Eswatini.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Zambia.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Sierra Leone.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Egypt.ico"></image>
+            <image id="flag" rel="icon"src="/static/flags/Lesotho.ico"></image>
+            <image id="flag" rel="icon"src="/static/flags/Sudan.ico"></image>
+            <image id="flag" rel="icon"src="/static/flags/Eritrea.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Gabon.ico"></image>
+            <image id="flag" rel="icon" src="/static/flags/Tunisia.ico"></image>
+        </div>
+    </footer>
+
+</html>

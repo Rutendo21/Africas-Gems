@@ -1,0 +1,218 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+    <h4>Catologue of recommended Series, Movies and Books</h4>
+
+{% endblock %}
+
+{% block main %}
+
+    <body>
+
+        <table class="itable">
+
+            <thead id="table">
+                <th> Series <br></br><br></br> </th>
+            </thead>
+
+            <br></br>
+
+            <tbody>
+
+            {% for serie in series %}
+
+                <tr class="row">
+                    <td class="column">
+                        <div class="popup">
+                            <div class="content">
+
+                                <span class="popuptext" name="popuptext">
+                                    <div class="page">
+                                        <h7>{{serie['title']}} ({{serie['year']}})</h7>
+                                        <br></br>
+                                        <p class="text">{{serie['description']}}</p>
+                                        <p class="text"><h8>Main Cast Members:</h8> {{serie['cast1']}}, {{serie['cast2']}}</p>
+                                        <p class="text"><h8>Creator:</h8> {{serie['screenwriter']}} ({{serie['acity']}}, {{serie['acountry']}})</p>
+                                        <p class="text"><h8>Location:</h8> {{serie['scity']}}, {{serie['scountry']}}</p>
+                                        <button class="btn-2" name="reviews" type="submit" style="display: inline" onclick="reviews()"> Read Reviews </button>
+                                    </div>
+                                </span>
+
+                                <div class="tpopup" id="tpopup">
+                                    <div class="uploadimage6">
+                                        <image id="image" class="actualimage6" name="image" src="{{serie['image']}}"></image>
+                                        <label for="image" class="imagelabel4" id="imagelabel"><button class="btn-2" id="moreinfo" type="button">More Information</button></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                        <script>
+
+                            //https://stackoverflow.com/questions/60515726/triggering-multiple-popups-generated-by-loop
+
+                            function seepopup()
+                            {
+                                this.querySelector('.popuptext').classList.toggle("show");
+                            }
+
+                            let popups = document.querySelectorAll('.content');
+
+                            popups.forEach(
+                                popup => popup.addEventListener('click', seepopup)
+                            );
+
+                            //https://www.geeksforgeeks.org/difference-between-window-location-href-window-location-replace-and-window-location-assign-in-javascript/
+
+                            function reviews()
+                            {
+                                window.location.href= "/reviews";
+                            }
+
+                        </script>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="itable2">
+
+            <thead id="table">
+                <th> Movies <br></br><br></br> </th>
+            </thead>
+
+            <br></br>
+
+            <tbody>
+
+            {% for movie in movies %}
+
+                <tr class="row">
+                    <td class="column">
+                        <div class="popup2">
+                            <div class="content2">
+
+                                <span class="popuptext2">
+                                    <div class="page">
+                                        <h7 name="title">{{movie['title']}}</h7> <h7 name="year">({{movie['year']}})</h7>
+                                        <br></br>
+                                        <p class="text">{{movie['description']}}</p>
+                                        <p class="text"><h8>Main Cast Members:</h8> {{movie['cast1']}}, {{movie['cast2']}}</p>
+                                        <p class="text"><h8>Creator:</h8> {{movie['screenwriter']}} ({{movie['acity']}}, {{movie['acountry']}})</p>
+                                        <p class="text"><h8>Location:</h8> {{movie['scity']}}, {{movie['scountry']}}</p>
+                                        <button class="btn-2" name="reviews" type="submit" style="display: inline" onclick="reviews()"> Read Reviews </button>
+                                    </div>
+                                </span>
+
+                                <div class="tpopup" id="tpopup">
+                                    <div class="uploadimage5">
+                                        <image id="image" class="actualimage5" name="image" src="{{movie['image']}}"></image>
+                                        <label for="image" class="imagelabel4" id="imagelabel"><button class="btn-2" id="moreinfo" type="button">More Information</button></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                        <script>
+
+                            function seepopup2()
+                            {
+                                this.querySelector('.popuptext2').classList.toggle("show");
+                            }
+
+                            let popups2 = document.querySelectorAll('.content2');
+
+                            popups2.forEach(
+                                popup2 => popup2.addEventListener('click', seepopup2)
+                            );
+
+                            function reviews()
+                            {
+                                window.location.href= "/reviews";
+                            }
+
+                        </script>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="itable3">
+
+            <thead id="table">
+                <th> Books <br></br><br></br> </th>
+            </thead>
+
+            <br></br>
+
+            <tbody>
+
+                {% for book in books %}
+
+                <tr class="row">
+                    <td class="column">
+
+                        <div class="popup3">
+                            <div class="content3">
+
+                                <span class="popuptext3">
+                                    <div class="page">
+                                        <h7 name="title">{{book['title']}}</h7> <h7 name="year">({{book['year']}})</h7>
+                                        <br></br>
+                                        <p class="text">{{book['description']}}</p>
+                                        <p class="text"><h8>Main Cast Members:</h8> {{book['character1']}}, {{book['character2']}}</p>
+                                        <p class="text"><h8>Author:</h8> {{book['author']}} ({{book['acity']}}, {{book['acountry']}})</p>
+                                        <p class="text"><h8>Setting:</h8> {{book['scity']}}, {{book['scountry']}}</p>
+                                        <button class="btn-2" name="reviews" type="submit" style="display: inline" onclick="reviews()"> Read Reviews </button>
+                                    </div>
+                                </span>
+
+                                <div class="tpopup" id="tpopup">
+                                    <div class="uploadimage4">
+                                        <image id="image" class="actualimage4" name="image" src="{{book['image']}}"></image>
+                                        <label for="image" class="imagelabel4" id="imagelabel"><button class="btn-2" id="moreinfo" type="button">More Information</button></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                        <script>
+
+                            function seepopup3()
+                            {
+                                this.querySelector('.popuptext3').classList.toggle("show");
+                            }
+
+                            let popups3 = document.querySelectorAll('.content3');
+
+                            popups3.forEach(
+                                popup3 => popup3.addEventListener('click', seepopup3)
+                            );
+
+                            function reviews()
+                            {
+                                window.location.href= "/reviews";
+                            }
+
+                        </script>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+
+{% endblock %}

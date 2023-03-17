@@ -1,0 +1,205 @@
+{% extends "layout.html" %}
+
+<script>
+
+</script>
+
+{% block title %}
+
+    <h4>Search recommendations by location</h4>
+
+{% endblock %}
+
+{% block main %}
+
+    <body>
+
+        <br></br>
+
+        <div class="box">
+            <input class="checkbox" type="checkbox" id="city" name="city" onclick="choose()">
+            <label class="check" for="city">City</label>
+        </div>
+
+        <div class="fbox">
+            <input class="checkbox" type="checkbox" id="country" name="country" onclick="choose()">
+            <label class="check" for="country">Country</label>
+        </div>
+
+        <form action="/search" method="post" class="submit2" id="form1" style="display: none" enctype="multipart/form-data">
+
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
+            <div style="display: none">
+                <input id="type" name="type" value="Country">Country</input>
+            </div>
+
+            <div>
+                <select class="inline3" id="country" name="country" required>
+                    <option disabled selected value="">Country</option>
+                    {% for country in countries %}
+                    <option required>{{country["country"]}}</option>
+                    {% endfor %}
+                </select>
+
+                <br></br>
+
+                <div>
+                    <button class="btn btn-1" id="search" type="submit">Search</button>
+                </div>
+            </div>
+
+        </form>
+
+        <br></br>
+
+        <form action="/search" method="post" class="submit2" id="form2" style="display: none" enctype="multipart/form-data">
+
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
+            <div style="display: none">
+                <input id="type" name="type" value="City">City</input>
+            </div>
+
+            <div>
+                <input class="inline4" id="city" name="city" placeholder="City" type="text" autocomplete="off" required>
+
+                <br></br>
+
+                <div>
+                    <button class="btn btn-1" id="search" type="submit">Search</button>
+                </div>
+            </div>
+
+        </form>
+
+
+        <table class="itable4">
+
+            <br></br>
+            <br></br>
+            <br></br>
+
+            <tbody>
+
+                {% for row in results %}
+
+                <tr class="row2">
+
+                    <td class="column">
+                        <br></br>
+                        <div class="tpopup" id="tpopup">
+                            <div class="uploadimage7">
+                                <image id="image" class="actualimage7" name="image" src="{{row['image']}}"></image>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td class="column2">
+
+                        <div class="popup4">
+                            <div class="content4">
+
+                                <span class="popuptext4">
+                                    <div class="page">
+                                        <h7 name="title">{{row['title']}}</h7> <h7 name="year">({{row['year']}})</h7>
+                                        <br></br>
+                                        <p class="text">{{row['description']}}</p>
+                                        <p class="text"><h8>Characters/Cast:</h8> {{row['charactercast1']}}, {{row['charactercast2']}}</p>
+                                        <p class="text"><h8>Creator/Author:</h8> {{row['authorscreenwriter']}} ({{row['acity']}}, {{row['acountry']}})</p>
+                                        <p class="text"><h8>Setting:</h8> {{row['scity']}}, {{row['scountry']}}</p>
+                                        <button class="btn-2" name="reviews" type="submit" style="display: inline" onclick="reviews()"> Read Reviews </button>
+                                        <br></br>
+                                    </div>
+                                </span>
+
+                                <div>
+                                    <h7>{{row['title']}} ({{row['year']}})</h7>
+                                    <br></br>
+                                    <p class="text"><h8>Creator/Author:</h8> {{row['authorscreenwriter']}} ({{row['acity']}}, {{row['acountry']}})</p>
+                                    <p class="text"><h8>Setting:</h8> {{row['scity']}}, {{row['scountry']}}</p>
+                                    <button class="btn-2" name="moreinfo" id="moreinfo" type="button" style="display: inline">More Information</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                        <script>
+
+                            function seepopup4()
+                            {
+                                this.querySelector('.popuptext4').classList.toggle("show");
+                            }
+
+                            let popups4 = document.querySelectorAll('.content4');
+
+                            popups4.forEach(
+                                popup4 => popup4.addEventListener('click', seepopup4)
+                            );
+
+                        </script>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br></br>
+
+        <div class="error">
+            {{error}}
+        </div>
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+
+        <script>
+
+            function choose()
+            {
+                var city = document.getElementById('city');
+                var country = document.getElementById('country');
+
+                var form1 = document.getElementById('form1');
+                var form2 = document.getElementById('form2');
+
+                if (country.checked == true)
+                {
+                    form1.style.display = "block";
+                    form2.style.display = "none";
+                }
+                else if (city.checked == true)
+                {
+                    form2.style.display = "block";
+                    form1.style.display = "none";
+                }
+                else if (country.checked == false)
+                {
+                    form1.style.display = "none";
+                    form2.style.display = "none";
+                }
+                else if (city.checked == false)
+                {
+                    form2.style.display = "none";
+                    form1.style.display = "none";
+                }
+            }
+
+            function reviews()
+            {
+                window.location.href= "/reviews";
+            }
+
+        </script>
+
+{% endblock %}

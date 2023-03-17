@@ -1,0 +1,838 @@
+header
+{
+    background-color: #000000;
+    padding-top: 0.1px;
+    padding-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+body
+{
+    background-color: #FFFFFF;
+}
+
+h1
+{
+    font: times new roman;
+    font-size: 20px;
+    color: #d5ad6d;
+    text-align: center;
+}
+
+h2
+{
+    font: times new roman;
+    font-size: 10px;
+    color: #4E3524;
+    text-align: center;
+}
+
+h3
+{
+    font: times new roman;
+    font-size: 18px;
+    color: #d5ad6d;
+    text-align: center;
+    padding-top: 12px;
+    padding-left: 70px;
+}
+
+#nav-icon
+{
+    float: left;
+    max-height: 80px;
+    max-width: max-header-content;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#nav-icon2
+{
+    float: left;
+    max-height: 80px;
+    max-width: max-header-content;
+    position: fixed;
+    cursor: pointer;
+    z-index: 1;
+}
+
+nav
+{
+    background-color: #4E3524;
+    width: 250px;
+    height: 100%;
+    color: #ffffff;
+    position: fixed;
+}
+
+ul
+{
+    list-style-type: none;
+    text-align: left;
+}
+
+.nav-link
+{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+footer
+{
+    position: fixed;
+    bottom: 0px;
+    min-width: max-content;
+    z-index: 1;
+}
+
+#flag
+{
+    width: inherit;
+}
+
+h4
+{
+    font: times new roman;
+    font-size: 60px;
+    color: #d5ad6d;
+    text-align: center;
+    max-height: 200px;
+}
+
+.itable
+{
+    border-width: 0px;
+    border-color: #FFFFFF;
+    border-style: solid;
+    width: 33.3%;
+    height: auto;
+    position: relative;
+    table-layout: fixed;
+    float: left;
+    display: inline-table;
+    padding-top: 72.5px;
+    padding-bottom: 50px;
+}
+
+.itable2
+{
+    border-width: 0px;
+    border-color: #FFFFFF;
+    border-style: solid;
+    width: 33.3%;
+    height: auto;
+    position: relative;
+    table-layout: fixed;
+    float: left;
+    display: inline-table;
+    padding-top: 36.5px;
+    padding-bottom: 50px;
+}
+
+.itable3
+{
+    border-width: 0px;
+    border-color: #FFFFFF;
+    border-style: solid;
+    width: 33.3%;
+    height: auto;
+    position: relative;
+    table-layout: fixed;
+    float: left;
+    display: inline-table;
+    padding-bottom: 50px;
+}
+
+.tpopup
+{
+    display: block;
+}
+
+.imagelabel4
+{
+    position: absolute;
+    cursor: pointer;
+    z-index: 1;
+    left: 50%;
+    bottom: 0%;
+    transform: translate(-50%, -50%);
+}
+
+.uploadimage4
+{
+    border: solid;
+    border-width: 5px;
+    border-color: #d5ad6d;
+    width: 70%;
+    height: 70%;
+    position: relative;
+    margin: auto;
+    display: block;
+}
+
+.uploadimage4 .actualimage4
+{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+}
+
+.uploadimage5
+{
+    border: solid;
+    border-width: 5px;
+    border-color: #d5ad6d;
+    width: 70%;
+    height: 70%;
+    position: relative;
+    margin: auto;
+    display: block;
+}
+
+.uploadimage5 .actualimage5
+{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+}
+
+.uploadimage6
+{
+    border: solid;
+    border-width: 5px;
+    border-color: #d5ad6d;
+    width: 70%;
+    height: 70%;
+    position: relative;
+    margin: auto;
+    display: block;
+}
+
+.uploadimage6 .actualimage6
+{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+}
+
+.btn
+{
+    background-color: #FFFFFF;
+    border: solid;
+    border-width: 2px;
+    border-color: #d5ad6d;
+    border-radius: 5px;
+    text-align: center;
+    font: arial;
+    font-size: 15px;
+    color: #4E3524;
+    cursor: pointer;
+}
+
+.btn-2
+{
+    background-color: #FFFFFF;
+    border: solid;
+    border-width: 2px;
+    border-color: #8b4513;
+    border-radius: 5px;
+    text-align: center;
+    font: arial;
+    color: #d5ad6d;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+}
+
+.page
+{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto;
+    height: 60%;
+}
+
+.content .popuptext
+{
+    visibility: hidden;
+    width: 50%;
+    height: 50%;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border: solid;
+    border-width: 5px;
+    border-color: #d5ad6d;
+    position: fixed;
+    z-index: 300;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    cursor: pointer;
+    margin: 5px;
+    text-align: center;
+}
+
+.content2 .popuptext2
+{
+    visibility: hidden;
+    width: 50%;
+    height: 50%;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border: solid;
+    border-width: 5px;
+    border-color: #d5ad6d;
+    position: fixed;
+    z-index: 300;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    cursor: pointer;
+    margin: 5px;
+    text-align: center;
+}
+
+.content3 .popuptext3
+{
+    visibility: hidden;
+    width: 50%;
+    height: 50%;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border: solid;
+    border-width: 5px;
+    border-color: #d5ad6d;
+    position: fixed;
+    z-index: 300;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    cursor: pointer;
+    margin: 5px;
+    text-align: center;
+}
+
+h7
+{
+    font: times new roman;
+    font-size: 25px;
+    color: #4E3524;
+}
+
+h8
+{
+    font: times new roman;
+    font-size: 14px;
+    color: #4E3524;
+}
+
+.text
+{
+    font: times new roman;
+    font-size: 12px;
+    color: #000000;
+}
+
+.popuptext.show
+{
+    visibility: visible;
+}
+
+.popuptext2.show
+{
+    visibility: visible;
+}
+
+.popuptext3.show
+{
+    visibility: visible;
+}
+
+.dropdown-menu
+{
+    position: relative;
+    display: inline-block;
+}
+
+.form-group
+{
+    background-color:#FFFFFF;
+    border: solid;
+    border-color: #d3d3d3;
+    border-width: 2px;
+}
+
+.uploadimage
+{
+    border: solid;
+    border-width: 5px;
+    border-color: #d5ad6d;
+    color: #FFFFFF;
+    background: #FFFFFF;
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.uploadimage .actualimage
+{
+    width: 100%;
+    height: 100%;
+}
+
+.imagelabel
+{
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    cursor: pointer;
+    transform: translate(-50%);
+    z-index: 100;
+}
+
+.uploadimage2
+{
+    border: solid;
+    border-width: 5px;
+    border-color: #d5ad6d;
+    color: #FFFFFF;
+    background: #FFFFFF;
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.uploadimage2 .actualimage2
+{
+    width: 100%;
+    height: 100%;
+}
+
+.imagelabel2
+{
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    cursor: pointer;
+    transform: translate(-50%);
+    z-index: 100;
+}
+
+.uploadimage3
+{
+    border: solid;
+    border-width: 5px;
+    border-color: #d5ad6d;
+    color: #FFFFFF;
+    background: #FFFFFF;
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.uploadimage3 .actualimage3
+{
+    width: 100%;
+    height: 100%;
+}
+
+.imagelabel3
+{
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    cursor: pointer;
+    transform: translate(-50%);
+    z-index: 100;
+}
+
+.submit
+{
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.submitit
+{
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.label
+{
+    cursor: pointer;
+}
+
+h5
+{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50%;
+    font: arial;
+    font-size: 15px;
+    color: #4E3524;
+    text-align: center;
+}
+
+.category
+{
+    width: 200%;
+    height: 100%;
+    font-size: 15px;
+    font: arial;
+    background-color: #FFFFFF;
+    border: solid;
+    border-width: 2px;
+    border-color: #d5ad6d;
+    border-radius: 5px;
+    color: #4E3524;
+}
+
+h6
+{
+    font: arial;
+    font-size: 17px;
+    color: #4E3524;
+}
+
+.submit .form
+{
+    font: arial;
+    font-size: 15px;
+    color: #000000;
+    width: 100%;
+    height: 100%;
+}
+
+.form2
+{
+    color: #000000;
+    font-size: 15px;
+    width: 100%;
+    height: 200px;
+}
+
+#Acity
+{
+    float: left;
+}
+
+.inline1
+{
+    font: arial;
+    font-size: 15px;
+    color: #000000;
+    width: 78%;
+    height: auto;
+}
+
+.inline2
+{
+    font: arial;
+    font-size: 15px;
+    color: #000000;
+    width: 20%;
+    height: auto;
+}
+
+.message
+{
+    font: arial;
+    font-size: 18px;
+    color: #4E3524;
+}
+
+.link
+{
+    text-decoration: none;
+    color: #d5ad6d;
+}
+
+.messagebox
+{
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: left;
+}
+
+.checkbox
+{
+    width: 20px;
+    height: 20px;
+    outline: 3px solid #4E3524;
+    cursor: pointer;
+}
+
+.check
+{
+    font-size: 15px;
+    font: arial;
+    color: #4E3524;
+}
+
+.box
+{
+    display: inline-block;
+    margin-left: 15%;
+}
+
+.fbox
+{
+    display: inline-block;
+    margin-left: 10%;
+}
+
+.inline3
+{
+    font: arial;
+    font-size: 15px;
+    color: #000000;
+    width: 90%;
+    height: auto;
+    background-color: #FFFFFF;
+    border: solid;
+    border-width: 2px;
+    border-color: #d5ad6d;
+    border-radius: 5px;
+    color: #4E3524;
+}
+
+.inline4
+{
+    font: arial;
+    font-size: 15px;
+    color: #000000;
+    width: 90%;
+    height: auto;
+    background-color: #FFFFFF;
+    border: solid;
+    border-width: 2px;
+    border-color: #d5ad6d;
+    border-radius: 5px;
+    color: #4E3524;
+}
+
+.submit2
+{
+    margin-left: 200px;
+    margin-right: 100px;
+}
+
+.itable4
+{
+    width: 90%;
+    height: auto;
+    position: relative;
+    table-layout: fixed;
+}
+
+.row
+{
+    height: 300px;
+}
+
+.row2
+{
+    height: 200px;
+}
+
+.column
+{
+    border-bottom: 40px solid #FFFFFF;
+}
+
+.uploadimage7
+{
+    border: solid;
+    border-width: 5px;
+    border-color: #d5ad6d;
+    width: 40%;
+    height: 40%;
+    position: relative;
+    margin: auto;
+    display: block;
+}
+
+.uploadimage7 .actualimage7
+{
+    width: 100%;
+    height: inherit;
+    position: relative;
+    margin: auto;
+    display: block;
+}
+
+.content4 .popuptext4
+{
+    visibility: hidden;
+    width: 50%;
+    height: 50%;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    border: solid;
+    border-width: 5px;
+    border-color: #d5ad6d;
+    position: fixed;
+    z-index: 300;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    cursor: pointer;
+    margin: 5px;
+    text-align: center;
+}
+
+.popuptext4.show
+{
+    visibility: visible;
+}
+
+.inline5
+{
+    font-size: 15px;
+    font: arial;
+    background-color: #FFFFFF;
+    border: solid;
+    border-width: 2px;
+    border-color: #d5ad6d;
+    border-radius: 5px;
+    color: #4E3524;
+    width: 20%;
+}
+
+.inline6
+{
+    font-size: 15px;
+    font: arial;
+    background-color: #FFFFFF;
+    border: solid;
+    border-width: 2px;
+    border-color: #d5ad6d;
+    border-radius: 5px;
+    color: #4E3524;
+    width: 50%;
+}
+
+.inline7
+{
+    font-size: 10px;
+    font: arial;
+    background-color: #FFFFFF;
+    border: solid;
+    border-width: 2px;
+    border-color: #d5ad6d;
+    border-radius: 5px;
+    color: #4E3524;
+    width: 25%;
+}
+
+h9
+{
+    font: arial;
+    font-size: 17px;
+    color: #4E3524;
+}
+
+.textarea
+{
+    width: 100%;
+    height: 400px;
+    font-size: 15px;
+    font: arial;
+    background-color: #FFFFFF;
+    border: solid;
+    border-width: 2px;
+    border-color: #d5ad6d;
+    border-radius: 5px;
+    color: #4E3524;
+}
+
+.submit3
+{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.itable5
+{
+    height: auto;
+    position: relative;
+    table-layout: fixed;
+    margin-left: 10%;
+    margin-left: 10%;
+    width: 80%;
+}
+
+.row3
+{
+    height: inherit;
+}
+
+.column2
+{
+    border-bottom: 5px solid #d5ad6d;
+}
+
+.text2
+{
+    font: times new roman;
+    font-size: 16px;
+    color: #000000;
+}
+
+.btn-3
+{
+    background-color: #FFFFFF;
+    border: solid;
+    border-width: 2px;
+    border-color: #8b4513;
+    border-radius: 5px;
+    text-align: center;
+    font: arial;
+    color: #d5ad6d;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+h10
+{
+    font: times new roman;
+    font-size: 17px;
+    color: #4E3524;
+}
+
+.star
+{
+    accent-color: #d5ad6d;
+}
+
+.error
+{
+    color: #000000;
+    font: arial;
+    font-size: 20px;
+    text-align: center;
+}
