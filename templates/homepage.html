@@ -158,7 +158,7 @@
                                 <span class="popuptext3">
                                     <div class="page">
                                         <form action="/" method="post" class="homesubmit3" id="homeform3" enctype="multipart/form-data">
-                                            <h7 name="title" id="title">{{book['title']}}</h7> <h7 name="year">({{book['year']}})</h7>
+                                            <h7> <input type="hidden" name="title" id="title" value="{{book['title']}}" /> ({{book['year']}})</h7>
                                             <br></br>
                                             <p class="text">{{book['description']}}</p>
                                             <p class="text"><h8>Main Cast Members:</h8> {{book['character1']}}, {{book['character2']}}</p>
