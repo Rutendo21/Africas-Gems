@@ -15,8 +15,12 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 # Configure database of books and movies
 db = SQL("sqlite:///books+movies.db")
 
+db.execute("CREATE TABLE IF NOT EXISTS books (image TEXT, title TEXT, year INTEGER, author TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, character1 TEXT, character2 TEXT)")
+db.execute("CREATE TABLE IF NOT EXISTS movies (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
+db.execute("CREATE TABLE IF NOT EXISTS series (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS results (image TEXT, title TEXT, year INTEGER, authorscreenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, charactercast1 TEXT, charactercast2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS reviews (title TEXT, category TEXT, review TEXT)")
+db.execute("CREATE TABLE IF NOT EXISTS countries (country TEXT)")
 
 def first(text):
 
