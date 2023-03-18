@@ -69,9 +69,9 @@ def homepage():
 
             error = "No Reviews Found"
 
-            return render_template("specificreview.html", reviews=reviews, error=error)
+            return render_template("reviews.html", reviews=reviews, error=error)
 
-        return render_template("specificreview.html", results=results, reviews=reviews)
+        return render_template("reviews.html", results=results, reviews=reviews)
     
 @app.route("/search", methods=["GET", "POST"])
 def search():
@@ -215,29 +215,21 @@ def review():
 
         return render_template("thankyoureview.html", title=title)
 
-@app.route("/reviews", methods=["GET", "POST"])
+@app.route("/reviews", methods=["GET"])
 def reviews():
 
-    if request.method == "GET":
+    title = request.form.get('title')
 
-        reviews = db.execute("SELECT * FROM reviews ORDER BY title ASC")
+    db.execute("CREATE TABLE IF NOT EXISTS ? (reviews TEXT, rating INTEGER)", title)
 
-        return render_template("reviews.html", reviews=reviews)
+    results = db.execute("SELECT * FROM ?", title)
 
-    if request.method == "POST":
+    reviews = db.execute("SELECT * FROM reviews ORDER BY title ASC")
 
-        title = request.form.get('title')
+    if results == []:
 
-        db.execute("CREATE TABLE IF NOT EXISTS ? (reviews TEXT, rating INTEGER)", title)
+        error = "No Reviews Found"
 
-        results = db.execute("SELECT * FROM ?", title)
+        return render_template("reviews.html", reviews=reviews, error=error)
 
-        reviews = db.execute("SELECT * FROM reviews ORDER BY title ASC")
-
-        if results == []:
-
-            error = "No Reviews Found"
-
-            return render_template("reviews.html", reviews=reviews, error=error)
-
-        return render_template("reviews.html", results=results, reviews=reviews)
+    return render_template("reviews.html", results=results, reviews=reviews)

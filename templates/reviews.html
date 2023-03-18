@@ -9,36 +9,8 @@
 {% endblock %}
 
 {% block main %}
-
-    <form action="/reviews" method="post" class="submit3" id="form">
-
-        <div>
-
-            <br></br>
-            <br></br>
-
-            <h9>
-                <select class="inline6" id="title" name="title">
-                    <option disabled selected value="">Title</option>
-                    {% for review in reviews %}
-                    <option value="{{review['title']}}" required>{{review["title"]}}</option>
-                    </button>
-                    {% endfor %}
-                </select>
-            </h9>
-
-            <br></br>
-
-            <button class="btn-3" id="review" type="submit">Lookup</button>
-
-        </div>
-
-    </form>
-
+      
     <table class="itable5">
-
-        <br></br>
-        <br></br>
 
         <tbody>
 
