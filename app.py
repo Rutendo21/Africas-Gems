@@ -157,7 +157,7 @@ def submit():
             d = request.form.get("cast member").title()
 
             db.execute("INSERT INTO movies (image, title, year, screenwriter, acountry, acity, scountry, scity, description, cast1, cast2) VALUES (?,?,?,?,?,?,?,?,?,?,?)", path, title, year, screenwriter, author_country, author_city, setting_country, setting_city, description, c, d)
-
+            
             db.execute("INSERT INTO reviews (title, category) VALUES (?,?)", title, category)
 
         elif category == "Book":
@@ -189,7 +189,9 @@ def submit():
             db.execute("INSERT INTO series (image, title, year, screenwriter, acountry, acity, scountry, scity, description, cast1, cast2) VALUES (?,?,?,?,?,?,?,?,?,?,?)", path, title, year, screenwriter, author_country, author_city, setting_country, setting_city, description, c, d)
 
             db.execute("INSERT INTO reviews (title, category) VALUES (?,?)", title, category)
-
+            
+        db.commit()
+        
         return render_template("thankyou.html", title=title)
 
 @app.route("/review", methods=["GET", "POST"])
