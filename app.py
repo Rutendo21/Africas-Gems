@@ -8,12 +8,14 @@ UPLOAD_FOLDER = "static/images"
 
 # Configure application
 app = Flask(__name__)
+
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
-# Configure database of books and movies
-db = SQL("sqlite:///books+movies.db")
+# Configure database of series books and movies
+db = SQL("postgresql://seriesbooksmovies_user:eeRYG1fTZxxukmG1js8qjdYskvP2pqkS@dpg-cgav6ot269v4ico9ug60-a.ohio-postgres.render.com/seriesbooksmovies")
 
 db.execute("CREATE TABLE IF NOT EXISTS books (image TEXT, title TEXT, year INTEGER, author TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, character1 TEXT, character2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS movies (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
@@ -190,7 +192,6 @@ def submit():
 
             db.execute("INSERT INTO reviews (title, category) VALUES (?,?)", title, category)
             
-        db.commit()
         return render_template("thankyou.html", title=title)
 
 @app.route("/review", methods=["GET", "POST"])
