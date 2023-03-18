@@ -34,24 +34,44 @@ def first(text):
 
     return '. '.join(sentence)
 
-@app.route("/", methods=["GET"])
+@app.route("/", methods=["GET", "POST"])
 def homepage():
+    
+    if request.method == "GET":
 
-    db.execute("DELETE FROM countries")
+        db.execute("DELETE FROM countries")
 
-    file = open("countries.csv", "r")
-    reader = csv.reader(file)
-    next(reader)
-    for row in reader:
-        country = row
-        db.execute("INSERT INTO countries (country) VALUES (?)", country)
+        file = open("countries.csv", "r")
+        reader = csv.reader(file)
+        next(reader)
+        for row in reader:
+            country = row
+            db.execute("INSERT INTO countries (country) VALUES (?)", country)
 
-    movies = db.execute("SELECT * FROM movies ORDER BY title ASC")
-    books = db.execute("SELECT * FROM books ORDER BY title ASC")
-    series = db.execute("SELECT * FROM series ORDER BY title ASC")
+        movies = db.execute("SELECT * FROM movies ORDER BY title ASC")
+        books = db.execute("SELECT * FROM books ORDER BY title ASC")
+        series = db.execute("SELECT * FROM series ORDER BY title ASC")
+        
+        return render_template("homepage.html", movies=movies, books=books, series=series)
 
-    return render_template("homepage.html", movies=movies, books=books, series=series)
+    if request.method == "POST":
+        
+        title = request.form.get("title");
+        
+        db.execute("CREATE TABLE IF NOT EXISTS ? (reviews TEXT, rating INTEGER)", title)
 
+        results = db.execute("SELECT * FROM ?", title)
+
+        reviews = db.execute("SELECT * FROM reviews ORDER BY title ASC")
+
+        if results == []:
+
+            error = "No Reviews Found"
+
+            return render_template("specificreview.html", reviews=reviews, error=error)
+
+        return render_template("specificreview.html", results=results, reviews=reviews)
+    
 @app.route("/search", methods=["GET", "POST"])
 def search():
 

@@ -27,17 +27,19 @@
                         <div class="popup">
                             <div class="content">
 
-                                <span class="popuptext" name="popuptext">
-                                    <div class="page">
-                                        <h7>{{serie['title']}} ({{serie['year']}})</h7>
-                                        <br></br>
-                                        <p class="text">{{serie['description']}}</p>
-                                        <p class="text"><h8>Main Cast Members:</h8> {{serie['cast1']}}, {{serie['cast2']}}</p>
-                                        <p class="text"><h8>Creator:</h8> {{serie['screenwriter']}} ({{serie['acity']}}, {{serie['acountry']}})</p>
-                                        <p class="text"><h8>Location:</h8> {{serie['scity']}}, {{serie['scountry']}}</p>
-                                        <button class="btn-2" name="reviews" type="submit" style="display: inline" onclick="reviews()"> Read Reviews </button>
-                                    </div>
-                                </span>
+                                <form action="/submit" method="post" class="submit" id="form1" style="display: none" enctype="multipart/form-data">
+                                    <span class="popuptext" name="popuptext">
+                                        <div class="page">
+                                            <h7><text id="title">{{serie['title']}}</text> ({{serie['year']}})</h7>
+                                            <br></br>
+                                            <p class="text">{{serie['description']}}</p>
+                                            <p class="text"><h8>Main Cast Members:</h8> {{serie['cast1']}}, {{serie['cast2']}}</p>
+                                            <p class="text"><h8>Creator:</h8> {{serie['screenwriter']}} ({{serie['acity']}}, {{serie['acountry']}})</p>
+                                            <p class="text"><h8>Location:</h8> {{serie['scity']}}, {{serie['scountry']}}</p>
+                                            <button class="btn-2" name="reviews" type="submit" style="display: inline"> Read Reviews </button>
+                                        </div>
+                                    </span>
+                                </form>
 
                                 <div class="tpopup" id="tpopup">
                                     <div class="uploadimage6">
@@ -65,13 +67,6 @@
                             popups.forEach(
                                 popup => popup.addEventListener('click', seepopup)
                             );
-
-                            //https://www.geeksforgeeks.org/difference-between-window-location-href-window-location-replace-and-window-location-assign-in-javascript/
-
-                            function reviews()
-                            {
-                                window.location.href= "/reviews";
-                            }
 
                         </script>
 
