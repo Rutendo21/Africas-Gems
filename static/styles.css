@@ -259,7 +259,7 @@ h4
     height: 60%;
 }
 
-.popuptext
+.content .popuptext
 {
     visibility: hidden;
     width: 50%;
