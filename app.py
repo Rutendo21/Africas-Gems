@@ -191,7 +191,6 @@ def submit():
             db.execute("INSERT INTO reviews (title, category) VALUES (?,?)", title, category)
             
         db.commit()
-        
         return render_template("thankyou.html", title=title)
 
 @app.route("/review", methods=["GET", "POST"])
