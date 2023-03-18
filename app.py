@@ -57,6 +57,7 @@ def homepage():
     if request.method == "POST":
         
         title = request.form.get("title");
+        print(f'{title}')
         
         db.execute("CREATE TABLE IF NOT EXISTS ? (reviews TEXT, rating INTEGER)", title)
 
