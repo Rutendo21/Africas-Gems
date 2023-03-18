@@ -30,7 +30,7 @@
                                 <span class="popuptext" name="popuptext">
                                     <div class="page">
                                         <form action="/" method="post" class="homesubmit" id="homeform" enctype="multipart/form-data">
-                                            <h7 name="title" id="title">{{serie['title']}}</h7> <h7 name="year">({{serie['year']}})</h7>
+                                            <h7>{{serie['title']}}</h7> <h7 name="year">({{serie['year']}})</h7>
                                             <p class="text">{{serie['description']}}</p>
                                             <p class="text"><h8>Main Cast Members:</h8> {{serie['cast1']}}, {{serie['cast2']}}</p>
                                             <p class="text"><h8>Creator:</h8> {{serie['screenwriter']}} ({{serie['acity']}}, {{serie['acountry']}})</p>
@@ -94,13 +94,13 @@
                                 <span class="popuptext2">
                                     <div class="page">
                                         <form action="/" method="post" class="homesubmit2" id="homeform2" enctype="multipart/form-data">
-                                            <h7 name="title" id="title">{{movie['title']}}</h7> <h7 name="year">({{movie['year']}})</h7>
+                                            <h7>{{movie['title']}}</h7> <h7 name="year">({{movie['year']}})</h7>
                                             <br></br>
                                             <p class="text">{{movie['description']}}</p>
                                             <p class="text"><h8>Main Cast Members:</h8> {{movie['cast1']}}, {{movie['cast2']}}</p>
                                             <p class="text"><h8>Creator:</h8> {{movie['screenwriter']}} ({{movie['acity']}}, {{movie['acountry']}})</p>
                                             <p class="text"><h8>Location:</h8> {{movie['scity']}}, {{movie['scountry']}}</p>
-                                            <button class="btn-2" name="reviews" type="submit" style="display: inline" onclick="reviews()"> Read Reviews </button>
+                                            <button class="btn-2" name="reviews" type="submit" style="display: inline"> Read Reviews </button>
                                         </form>
                                     </div>
                                 </span>
@@ -164,7 +164,7 @@
                                             <p class="text"><h8>Main Cast Members:</h8> {{book['character1']}}, {{book['character2']}}</p>
                                             <p class="text"><h8>Author:</h8> {{book['author']}} ({{book['acity']}}, {{book['acountry']}})</p>
                                             <p class="text"><h8>Setting:</h8> {{book['scity']}}, {{book['scountry']}}</p>
-                                            <button class="btn-2" name="reviews" type="submit" style="display: inline" onclick="reviews()"> Read Reviews </button>
+                                            <button class="btn-2" name="reviews" type="submit" style="display: inline"> Read Reviews </button>
                                         </form>
                                     </div>
                                 </span>
@@ -193,11 +193,6 @@
                             popups3.forEach(
                                 popup3 => popup3.addEventListener('click', seepopup3)
                             );
-
-                            function reviews()
-                            {
-                                window.location.href= "/reviews";
-                            }
 
                         </script>
 
