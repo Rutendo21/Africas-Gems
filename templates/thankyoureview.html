@@ -12,12 +12,12 @@
     <br></br>
 
     <div class="messagebox">
-        <form>
+        <form action="/reviews" method="get" class="thankyoureviewsubmit" id="thankyoureviewform">
             <input type="hidden" name="title" id="title" value="{{title}}" />
             <message class="message">Thank you for reviewing <text class="link">"{{title}}"</text></message>
             <br></br>
             <br></br>
-            <message class="message"> To read others' reviews return to <a class="link" href="/reviews"> Reviews </a> </message>
+            <button class="btn-2" name="reviews" type="submit" style="display: inline"> Read More Reviews </button>
             <br></br>
             <br></br>
             <br></br>
