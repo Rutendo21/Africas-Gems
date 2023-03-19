@@ -22,6 +22,7 @@ db.execute("CREATE TABLE IF NOT EXISTS movies (image TEXT, title TEXT, year INTE
 db.execute("CREATE TABLE IF NOT EXISTS series (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS results (image TEXT, title TEXT, year INTEGER, authorscreenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, charactercast1 TEXT, charactercast2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS reviews (title TEXT, category TEXT, review TEXT, rating INTEGER)")
+db.execute("CREATE TABLE IF NOT EXISTS titles (title TEXT, category TEXT, review TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS countries (country TEXT)")
 
 def first(text):
@@ -156,7 +157,7 @@ def submit():
 
             db.execute("INSERT INTO movies (image, title, year, screenwriter, acountry, acity, scountry, scity, description, cast1, cast2) VALUES (?,?,?,?,?,?,?,?,?,?,?)", path, title, year, screenwriter, author_country, author_city, setting_country, setting_city, description, c, d)
             
-            db.execute("INSERT INTO reviews (title, category) VALUES (?,?)", title, category)
+            db.execute("INSERT INTO titles (title, category) VALUES (?,?)", title, category)
 
         elif category == "Book":
 
@@ -171,7 +172,7 @@ def submit():
 
             db.execute("INSERT INTO books (image, title, year, author, acountry, acity, scountry, scity, description, character1, character2) VALUES (?,?,?,?,?,?,?,?,?,?,?)", path, title, year, author, author_country, author_city, setting_country, setting_city, description, c, d)
 
-            db.execute("INSERT INTO reviews (title, category) VALUES (?,?)", title, category)
+            db.execute("INSERT INTO titles (title, category) VALUES (?,?)", title, category)
 
         else:
 
@@ -186,7 +187,7 @@ def submit():
 
             db.execute("INSERT INTO series (image, title, year, screenwriter, acountry, acity, scountry, scity, description, cast1, cast2) VALUES (?,?,?,?,?,?,?,?,?,?,?)", path, title, year, screenwriter, author_country, author_city, setting_country, setting_city, description, c, d)
 
-            db.execute("INSERT INTO reviews (title, category) VALUES (?,?)", title, category)
+            db.execute("INSERT INTO titles (title, category) VALUES (?,?)", title, category)
             
         return render_template("thankyou.html", title=title)
 
