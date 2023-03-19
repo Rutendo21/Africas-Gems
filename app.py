@@ -21,7 +21,7 @@ db.execute("CREATE TABLE IF NOT EXISTS books (image TEXT, title TEXT, year INTEG
 db.execute("CREATE TABLE IF NOT EXISTS movies (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS series (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS results (image TEXT, title TEXT, year INTEGER, authorscreenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, charactercast1 TEXT, charactercast2 TEXT)")
-db.execute("CREATE TABLE IF NOT EXISTS reviews (title TEXT, category TEXT, review TEXT, rating TEXT)")
+db.execute("CREATE TABLE IF NOT EXISTS reviews (title TEXT, category TEXT, review TEXT, rating INTEGER)")
 db.execute("CREATE TABLE IF NOT EXISTS countries (country TEXT)")
 
 def first(text):
