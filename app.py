@@ -21,7 +21,7 @@ db.execute("CREATE TABLE IF NOT EXISTS books (image TEXT, title TEXT, year INTEG
 db.execute("CREATE TABLE IF NOT EXISTS movies (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS series (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS results (image TEXT, title TEXT, year INTEGER, authorscreenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, charactercast1 TEXT, charactercast2 TEXT)")
-db.execute("CREATE TABLE IF NOT EXISTS reviews (title TEXT, category TEXT, review TEXT)")
+db.execute("CREATE TABLE IF NOT EXISTS reviews (title TEXT, category TEXT, review TEXT, rating TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS countries (country TEXT)")
 
 def first(text):
@@ -60,20 +60,16 @@ def homepage():
         
         title = request.form.get("title");
         print(f'{title}')
-        
-        db.execute("CREATE TABLE IF NOT EXISTS ? (reviews TEXT, rating INTEGER)", title)
 
-        results = db.execute("SELECT * FROM ?", title)
-
-        reviews = db.execute("SELECT * FROM reviews ORDER BY title ASC")
+        results = db.execute("SELECT * FROM reviews WHERE title = ?", title)
 
         if results == []:
 
             error = "No Reviews Found"
 
-            return render_template("reviews.html", reviews=reviews, error=error)
+            return render_template("reviews.html", error=error)
 
-        return render_template("reviews.html", results=results, reviews=reviews)
+        return render_template("reviews.html", results=results)
     
 @app.route("/search", methods=["GET", "POST"])
 def search():
@@ -222,16 +218,12 @@ def reviews():
 
     title = request.form.get('title')
 
-    db.execute("CREATE TABLE IF NOT EXISTS ? (reviews TEXT, rating INTEGER)", title)
-
-    results = db.execute("SELECT * FROM ?", title)
-
-    reviews = db.execute("SELECT * FROM reviews ORDER BY title ASC")
+    results = db.execute("SELECT * FROM reviews WHERE title = ?", title)
 
     if results == []:
 
         error = "No Reviews Found"
 
-        return render_template("reviews.html", reviews=reviews, error=error)
+        return render_template("reviews.html", error=error)
 
-    return render_template("reviews.html", results=results, reviews=reviews)
+    return render_template("reviews.html", results=results)
