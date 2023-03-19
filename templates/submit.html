@@ -16,7 +16,7 @@
                 <select class="inline7" id="title" name="title">
                     <option disabled selected value="Title">Title</option>
                     {% for title in titles %}
-                    <option value="{{titles['title']}}">{{titles["title"]}}</option>
+                    <option disabled value="{{title['title']}}">{{title["title"]}}</option>
                     {% endfor %}
                 </select>
             </p>
