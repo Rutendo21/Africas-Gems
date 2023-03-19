@@ -208,7 +208,7 @@ def review():
 
         star = request.form.get('star')
 
-        db.execute("INSERT INTO reviews (title, reviews, rating) VALUES (?, ?, ?)", title, text, star)
+        db.execute("INSERT INTO reviews (title, review, rating) VALUES (?, ?, ?)", title, text, star)
 
         return render_template("thankyoureview.html", title=title)
 
