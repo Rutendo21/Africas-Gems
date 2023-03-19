@@ -21,8 +21,8 @@
                 Review
                 <select class="inline6" id="title" name="title" onchange="show()" required>
                     <option disabled selected value="">Title</option>
-                    {% for review in reviews %}
-                    <option value="{{review['title']}}" required>{{review["title"]}}</option>
+                    {% for title in titles %}
+                    <option value="{{title['title']}}" required>{{title["title"]}}</option>
                     {% endfor %}
                  </select>
             </h9>

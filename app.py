@@ -21,7 +21,7 @@ db.execute("CREATE TABLE IF NOT EXISTS books (image TEXT, title TEXT, year INTEG
 db.execute("CREATE TABLE IF NOT EXISTS movies (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS series (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS results (image TEXT, title TEXT, year INTEGER, authorscreenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, charactercast1 TEXT, charactercast2 TEXT)")
-db.execute("CREATE TABLE IF NOT EXISTS reviews (title TEXT, category TEXT, review TEXT, rating INTEGER)")
+db.execute("CREATE TABLE IF NOT EXISTS reviews (title TEXT, review TEXT, rating INTEGER)")
 db.execute("CREATE TABLE IF NOT EXISTS titles (title TEXT, category TEXT, review TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS countries (country TEXT)")
 
@@ -126,9 +126,9 @@ def submit():
 
         countries = db.execute("SELECT * FROM countries")
 
-        reviews = db.execute("SELECT * FROM reviews ORDER BY title ASC")
+        titles = db.execute("SELECT * FROM titles ORDER BY title ASC")
 
-        return render_template("submit.html", countries=countries, reviews=reviews)
+        return render_template("submit.html", countries=countries, titles=titles)
 
     if request.method == "POST":
 
@@ -196,9 +196,9 @@ def review():
 
     if request.method == "GET":
 
-        reviews = db.execute("SELECT * FROM reviews ORDER BY title ASC")
+        titles = db.execute("SELECT * FROM titles ORDER BY title ASC")
 
-        return render_template("review.html", reviews=reviews)
+        return render_template("review.html", titles=titles)
 
     if request.method == "POST":
 
@@ -208,9 +208,7 @@ def review():
 
         star = request.form.get('star')
 
-        db.execute("CREATE TABLE IF NOT EXISTS ? (reviews TEXT, rating INTEGER)", title)
-
-        db.execute("INSERT INTO ? (reviews, rating) VALUES (?, ?)", title, text, star)
+        db.execute("INSERT INTO reviews (title, reviews, rating) VALUES (?, ?, ?)", title, text, star)
 
         return render_template("thankyoureview.html", title=title)
 

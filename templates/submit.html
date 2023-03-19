@@ -15,8 +15,8 @@
                 Lookup title before submiting your recommendation to prevent duplication
                 <select class="inline7" id="title" name="title">
                     <option disabled selected value="Title">Title</option>
-                    {% for review in reviews %}
-                    <option disabled value="{{review['title']}}">{{review["title"]}}</option>
+                    {% for title in titles %}
+                    <option disabled value="{{review['title']}}">{{titles["title"]}}</option>
                     {% endfor %}
                 </select>
             </p>
