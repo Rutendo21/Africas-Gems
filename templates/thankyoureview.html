@@ -12,16 +12,14 @@
     <br></br>
 
     <div class="messagebox">
-        <form action="/reviews" class="thankyoureviewsubmit" id="thankyoureviewform">
-            <input type="hidden" name="title" id="title" value="{{title}}" />
-            <message class="message">Thank you for reviewing <text class="link">"{{title}}"</text></message>
-            <br></br>
-            <br></br>
-            <button class="btn-2" name="reviews" type="submit" style="display: inline"> Read More Reviews </button>
-            <br></br>
-            <br></br>
-            <br></br>
-        </form>
+        <input type="hidden" name="title" id="title" value="{{title}}" />
+        <message class="message">Thank you for reviewing <text class="link">"{{title}}"</text></message>
+        <br></br>
+        <br></br>
+        <message class="message"> To review more recommendations return to <a class="link" href="/review"> Review Recommendation </a> </message>
+        <br></br>
+        <br></br>
+        <br></br>
     </div>
 
 {% endblock %}
