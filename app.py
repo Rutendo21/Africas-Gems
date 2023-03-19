@@ -22,7 +22,7 @@ db.execute("CREATE TABLE IF NOT EXISTS movies (image TEXT, title TEXT, year INTE
 db.execute("CREATE TABLE IF NOT EXISTS series (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS results (image TEXT, title TEXT, year INTEGER, authorscreenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, charactercast1 TEXT, charactercast2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS reviews (title TEXT, review TEXT, rating INTEGER)")
-db.execute("CREATE TABLE IF NOT EXISTS titles (title TEXT, category TEXT, review TEXT)")
+db.execute("CREATE TABLE IF NOT EXISTS titles (title TEXT, category TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS countries (country TEXT)")
 
 def first(text):
