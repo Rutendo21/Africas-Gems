@@ -178,11 +178,12 @@ def submit():
         else:
 
             image = request.files['image3']
+            
+            actualimage = psycopg2.Binary(image.read())
+            
             filename = secure_filename(image.filename)
             path = os.path.join(app.config["UPLOAD_FOLDER"], image.filename)
             image.save(path)
-            
-            actualimage = psycopg2.Binary(image)
 
             screenwriter = request.form.get("screenwriter").title()
 
