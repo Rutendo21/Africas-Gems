@@ -20,7 +20,7 @@ db = SQL("postgresql://seriesbooksmovies_user:eeRYG1fTZxxukmG1js8qjdYskvP2pqkS@d
 
 db.execute("CREATE TABLE IF NOT EXISTS books (image TEXT, title TEXT, year INTEGER, author TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, character1 TEXT, character2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS movies (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
-db.execute("CREATE TABLE IF NOT EXISTS series (image BYTEA, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
+db.execute("CREATE TABLE IF NOT EXISTS series (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT, actualimage BYTEA)")
 db.execute("CREATE TABLE IF NOT EXISTS results (image TEXT, title TEXT, year INTEGER, authorscreenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, charactercast1 TEXT, charactercast2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS reviews (title TEXT, review TEXT, rating INTEGER)")
 db.execute("CREATE TABLE IF NOT EXISTS titles (title TEXT, category TEXT)")
@@ -177,14 +177,18 @@ def submit():
 
         else:
 
-            actualimage = request.files['image3']
-            image = psycopg2.Binary(actualimage.read())
+            image = request.files['image3']
+            filename = secure_filename(image.filename)
+            path = os.path.join(app.config["UPLOAD_FOLDER"], image.filename)
+            image.save(path)
+            
+            actualimage = psycopg2.Binary(image.read())
 
             screenwriter = request.form.get("screenwriter").title()
 
             d = request.form.get("cast member").title()
 
-            db.execute("INSERT INTO series (image, title, year, screenwriter, acountry, acity, scountry, scity, description, cast1, cast2) VALUES (?,?,?,?,?,?,?,?,?,?,?)", image, title, year, screenwriter, author_country, author_city, setting_country, setting_city, description, c, d)
+            db.execute("INSERT INTO series (image, title, year, screenwriter, acountry, acity, scountry, scity, description, cast1, cast2, actualiamge) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", path, title, year, screenwriter, author_country, author_city, setting_country, setting_city, description, c, d, actualimage)
 
             db.execute("INSERT INTO titles (title, category) VALUES (?,?)", title, category)
             
