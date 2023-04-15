@@ -188,7 +188,7 @@ def submit():
 
             d = request.form.get("cast member").title()
 
-            db.execute("INSERT INTO series (image, title, year, screenwriter, acountry, acity, scountry, scity, description, cast1, cast2, actualiamge) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", path, title, year, screenwriter, author_country, author_city, setting_country, setting_city, description, c, d, actualimage)
+            db.execute("INSERT INTO series (image, title, year, screenwriter, acountry, acity, scountry, scity, description, cast1, cast2, actualimage) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", path, title, year, screenwriter, author_country, author_city, setting_country, setting_city, description, c, d, actualimage)
 
             db.execute("INSERT INTO titles (title, category) VALUES (?,?)", title, category)
             
