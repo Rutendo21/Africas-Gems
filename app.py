@@ -3,6 +3,7 @@ import os
 from cs50 import SQL
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
+import psycopg2
 
 UPLOAD_FOLDER = "static/images"
 
@@ -176,7 +177,8 @@ def submit():
 
         else:
 
-            image = request.files['image3']
+            actualimage = request.files['image3']
+            image = psycopg2.Binary(actualimage.read())
 
             screenwriter = request.form.get("screenwriter").title()
 
