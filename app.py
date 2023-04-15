@@ -19,7 +19,7 @@ db = SQL("postgresql://seriesbooksmovies_user:eeRYG1fTZxxukmG1js8qjdYskvP2pqkS@d
 
 db.execute("CREATE TABLE IF NOT EXISTS books (image TEXT, title TEXT, year INTEGER, author TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, character1 TEXT, character2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS movies (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
-db.execute("CREATE TABLE IF NOT EXISTS series (image BLOB, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
+db.execute("CREATE TABLE IF NOT EXISTS series (image BYTEA, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS results (image TEXT, title TEXT, year INTEGER, authorscreenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, charactercast1 TEXT, charactercast2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS reviews (title TEXT, review TEXT, rating INTEGER)")
 db.execute("CREATE TABLE IF NOT EXISTS titles (title TEXT, category TEXT)")
