@@ -3,6 +3,8 @@ import os
 from cs50 import SQL
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
+import psycopg2
+import psycopg2.extras
 
 UPLOAD_FOLDER = "static/images"
 
@@ -148,7 +150,7 @@ def submit():
 
             image = request.files['image2']
             filename = secure_filename(image.filename)
-            path = os.path.join(app.config["UPLOAD_FOLDER"], image.filename)
+            path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
             image.save(path)
 
             screenwriter = request.form.get("screenwriter").title()
@@ -163,7 +165,7 @@ def submit():
 
             image = request.files['image']
             filename = secure_filename(image.filename)
-            path = os.path.join(app.config["UPLOAD_FOLDER"], image.filename)
+            path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
             image.save(path)
 
             author = request.form.get("author").title()
@@ -178,7 +180,7 @@ def submit():
 
             image = request.files['image3']
             filename = secure_filename(image.filename)
-            path = os.path.join(app.config["UPLOAD_FOLDER"], image.filename)
+            path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
             image.save(path)
 
             screenwriter = request.form.get("screenwriter").title()
