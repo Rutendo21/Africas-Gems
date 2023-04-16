@@ -6,7 +6,7 @@ from werkzeug.utils import secure_filename
 import psycopg2
 import psycopg2.extras
 
-UPLOAD_FOLDER = "static/images"
+UPLOAD_FOLDER = "/static/images"
 
 # Configure application
 app = Flask(__name__)
@@ -190,6 +190,8 @@ def submit():
             db.execute("INSERT INTO series (image, title, year, screenwriter, acountry, acity, scountry, scity, description, cast1, cast2) VALUES (?,?,?,?,?,?,?,?,?,?,?)", path, title, year, screenwriter, author_country, author_city, setting_country, setting_city, description, c, d)
 
             db.execute("INSERT INTO titles (title, category) VALUES (?,?)", title, category)
+            
+            db.commit()
             
         return render_template("thankyou.html", title=title)
 
