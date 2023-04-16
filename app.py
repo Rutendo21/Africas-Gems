@@ -6,7 +6,7 @@ from werkzeug.utils import secure_filename
 import psycopg2
 import psycopg2.extras
 
-UPLOAD_FOLDER = "/static/images"
+UPLOAD_FOLDER = "static/images"
 
 # Configure application
 app = Flask(__name__)
