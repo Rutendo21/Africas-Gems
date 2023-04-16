@@ -183,7 +183,7 @@ def submit():
             path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
             image.save(path)
             
-            actualimage = psycopg2.Binary(image.read())
+            actualimage = image.read()
 
             screenwriter = request.form.get("screenwriter").title()
 
