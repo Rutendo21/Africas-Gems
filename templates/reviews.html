@@ -9,51 +9,35 @@
 {% endblock %}
 
 {% block main %}
-      
+
     <table class="itable5">
-
         <tbody>
-
+    
             {% for result in results %}
-
+    
             <tr class="row3">
-                <td class="column2">
-                    <br></br>
+                <td class="column3">
                     <p class="text2">" {{result['review']}} "</p>
-                    <h10>Rating:</h10> <p style="display: inline">{{result['rating']}}/5</p>
-                    <br></br>
-                    <br></br>
+                    <h8>Rating:</h8> <p class="text2" style="display: inline">{{result['rating']}}/5</p>
                 </td>
             </tr>
-
+    
             {% endfor %}
-
+    
         </tbody>
     </table>
-
-    <br></br>
-    <br></br>
-
+    
     <div class="error">
         {{error}}
     </div>
-
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-
-    <button class="btn btn-2" id="review" type="button" onclick="review()">Write a review</button>
-
-    <br></br>
-    <br></br>
-    <br></br>
-
+    
+    <button class="btn-4" id="review" type="button" onclick="review() ; load()">Write a review</button>
+    
     <script>
         function review()
         {
             window.location.href= "/review";
         }
     </script>
-
+    
 {% endblock %}

@@ -45,6 +45,10 @@
 
         <title>Africa's Gems</title>
 
+        <div id="loading">
+            <image src="/static/africa.jpg" id="loadinglogo" rel="image" />
+        </div>
+
         <header>
 
             <image src="/static/africa.jpg" id="nav-icon" rel="image" onclick="menushow()"></image>
@@ -55,25 +59,27 @@
 
                 <image src="/static/africa.jpg" id="nav-icon2" rel="image" onclick="menuhide()"></image>
 
-                <h3>Africa's Gems</h3>
+                <div id="nav-title">
+                    <h3>Africa's Gems</h3>
+                </div>
 
                 <br></br>
 
                 <ul class="navbar-nav">
                     <br></br>
-                    <li class="nav-item"><a class="nav-link" href="/">Catologue</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/" onclick="load()">Catologue</a></li>
                     <br></br>
                     <br></br>
                     <br></br>
-                    <li class="nav-item"><a class="nav-link" href="/search">Search</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/search" onclick="load()">Search</a></li>
                     <br></br>
                     <br></br>
                     <br></br>
-                    <li class="nav-item"><a class="nav-link" href="/submit">Recommend</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/submit" onclick="load()">Recommend</a></li>
                     <br></br>
                     <br></br>
                     <br></br>
-                    <li class="nav-item"><a class="nav-link" href="/review">Review Recommendation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/review" onclick="load()">Review</a></li>
                 </ul>
             </nav>
 
@@ -101,6 +107,15 @@
             {% block main %}{% endblock %}
 
         </main>
+
+        <script>
+            function load() {
+                document.querySelector("#loading").style.display = "block";
+                document.querySelector("body").style.overflow = "hidden";
+                document.querySelector("footer").style.visibility = "hidden"
+            }
+        </script>
+
     </body>
 
     <footer>

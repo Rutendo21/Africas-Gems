@@ -1,21 +1,50 @@
+#loading {
+    width: 100.5vw;
+    height: 100.5vh;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    display: none;
+    z-index: 0;
+}
+
+#loadinglogo {
+    width: 10vw;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    animation-name: move;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    z-index: 0;
+}
+
+@keyframes move {
+    50% {
+        width: 15vw;
+    }
+}
+
 header
 {
     background-color: #000000;
-    padding-top: 0.1px;
-    padding-bottom: 10px;
     position: relative;
+    vertical-align: center;
+    width: 98vw;
     z-index: 2;
 }
 
 body
 {
     background-color: #FFFFFF;
+    overflow-x: hidden;
+    margin-bottom: 10vw;
 }
 
 h1
 {
     font: times new roman;
-    font-size: 20px;
     color: #d5ad6d;
     text-align: center;
 }
@@ -23,7 +52,6 @@ h1
 h2
 {
     font: times new roman;
-    font-size: 10px;
     color: #4E3524;
     text-align: center;
 }
@@ -31,17 +59,19 @@ h2
 h3
 {
     font: times new roman;
-    font-size: 18px;
     color: #d5ad6d;
-    text-align: center;
-    padding-top: 12px;
-    padding-left: 70px;
+}
+
+#nav-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
 }
 
 #nav-icon
 {
     float: left;
-    max-height: 80px;
     max-width: max-header-content;
     cursor: pointer;
     z-index: 1;
@@ -50,7 +80,6 @@ h3
 #nav-icon2
 {
     float: left;
-    max-height: 80px;
     max-width: max-header-content;
     position: fixed;
     cursor: pointer;
@@ -60,23 +89,27 @@ h3
 nav
 {
     background-color: #4E3524;
-    width: 250px;
-    height: 100%;
-    color: #ffffff;
+    width: 25vw;
+    height: 100.1vh;
+    margin-left: -1.3vw;
     position: fixed;
+    z-index: 1;
 }
 
 ul
 {
     list-style-type: none;
     text-align: left;
+    padding-left: 5vw;
+    max-width: 25vw;
+    position: relative;
 }
 
 .nav-link
 {
     text-decoration: none;
     color: #ffffff;
-    font-size: 22px;
+    z-index: 1;
 }
 
 footer
@@ -87,18 +120,12 @@ footer
     z-index: 1;
 }
 
-#flag
-{
-    width: inherit;
-}
-
 h4
 {
     font: times new roman;
-    font-size: 60px;
     color: #d5ad6d;
     text-align: center;
-    max-height: 200px;
+    font-size: 5vw;
 }
 
 .itable
@@ -111,9 +138,8 @@ h4
     position: relative;
     table-layout: fixed;
     float: left;
-    display: inline-table;
-    padding-top: 72.5px;
-    padding-bottom: 50px;
+    display: inline;
+    margin-bottom: 5vw;
 }
 
 .itable2
@@ -126,9 +152,9 @@ h4
     position: relative;
     table-layout: fixed;
     float: left;
-    display: inline-table;
-    padding-top: 36.5px;
-    padding-bottom: 50px;
+    display: inline;
+    margin-top: -35px;
+    margin-bottom: 5vw;
 }
 
 .itable3
@@ -141,8 +167,9 @@ h4
     position: relative;
     table-layout: fixed;
     float: left;
-    display: inline-table;
-    padding-bottom: 50px;
+    display: inline;
+    margin-top: -70px;
+    margin-bottom: 5vw;
 }
 
 .tpopup
@@ -178,6 +205,7 @@ h4
     height: 100%;
     position: relative;
     display: block;
+    cursor: pointer;
 }
 
 .uploadimage5
@@ -198,6 +226,7 @@ h4
     height: 100%;
     position: relative;
     display: block;
+    cursor: pointer;
 }
 
 .uploadimage6
@@ -218,6 +247,7 @@ h4
     height: 100%;
     position: relative;
     display: block;
+    cursor: pointer;
 }
 
 .btn
@@ -229,7 +259,6 @@ h4
     border-radius: 5px;
     text-align: center;
     font: arial;
-    font-size: 15px;
     color: #4E3524;
     cursor: pointer;
 }
@@ -249,6 +278,20 @@ h4
     margin: auto;
 }
 
+.btn-5
+{
+    background-color: #FFFFFF;
+    border: solid;
+    border-width: 2px;
+    border-color: #d5ad6d;
+    border-radius: 5px;
+    text-align: center;
+    font: arial;
+    color: #4E3524;
+    cursor: pointer;
+    margin-top: 10vw;
+}
+
 .page
 {
     position: relative;
@@ -256,14 +299,14 @@ h4
     left: 50%;
     transform: translate(-50%, -50%);
     overflow: auto;
-    height: 60%;
+    min-width: 80%;
 }
 
-.popuptext
+.content .popuptext
 {
     visibility: hidden;
-    width: 50%;
-    height: 50%;
+    width: 50vw;
+    height: 60vh;
     background-color: #FFFFFF;
     border-radius: 5px;
     border: solid;
@@ -274,17 +317,15 @@ h4
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 25px;
     cursor: pointer;
-    margin: 5px;
     text-align: center;
 }
 
 .content2 .popuptext2
 {
     visibility: hidden;
-    width: 50%;
-    height: 50%;
+    width: 50vw;
+    height: 60vh;
     background-color: #FFFFFF;
     border-radius: 5px;
     border: solid;
@@ -295,17 +336,15 @@ h4
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 25px;
     cursor: pointer;
-    margin: 5px;
     text-align: center;
 }
 
 .content3 .popuptext3
 {
     visibility: hidden;
-    width: 50%;
-    height: 50%;
+    width: 50vw;
+    height: 60vh;
     background-color: #FFFFFF;
     border-radius: 5px;
     border: solid;
@@ -316,30 +355,25 @@ h4
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 25px;
     cursor: pointer;
-    margin: 5px;
     text-align: center;
 }
 
 h7
 {
     font: times new roman;
-    font-size: 25px;
     color: #4E3524;
 }
 
 h8
 {
     font: times new roman;
-    font-size: 14px;
     color: #4E3524;
 }
 
 .text
 {
     font: times new roman;
-    font-size: 12px;
     color: #000000;
 }
 
@@ -381,11 +415,12 @@ h8
     background: #FFFFFF;
     background-size: cover;
     background-position: center;
-    width: 300px;
-    height: 300px;
+    width: 40vw;
+    height: 40vw;
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .uploadimage .actualimage
@@ -397,11 +432,7 @@ h8
 .imagelabel
 {
     position: absolute;
-    bottom: 100px;
-    left: 50%;
     cursor: pointer;
-    transform: translate(-50%);
-    z-index: 100;
 }
 
 .uploadimage2
@@ -413,11 +444,12 @@ h8
     background: #FFFFFF;
     background-size: cover;
     background-position: center;
-    width: 300px;
-    height: 300px;
+    width: 40vw;
+    height: 40vw;
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .uploadimage2 .actualimage2
@@ -429,10 +461,7 @@ h8
 .imagelabel2
 {
     position: absolute;
-    bottom: 100px;
-    left: 50%;
     cursor: pointer;
-    transform: translate(-50%);
     z-index: 100;
 }
 
@@ -445,11 +474,12 @@ h8
     background: #FFFFFF;
     background-size: cover;
     background-position: center;
-    width: 300px;
-    height: 300px;
+    width: 40vw;
+    height: 40vw;
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .uploadimage3 .actualimage3
@@ -461,23 +491,38 @@ h8
 .imagelabel3
 {
     position: absolute;
-    bottom: 100px;
-    left: 50%;
     cursor: pointer;
-    transform: translate(-50%);
     z-index: 100;
 }
 
 .submit
 {
-    margin-left: 200px;
-    margin-right: 200px;
+    margin-left: 5vw;
+    margin-right: 3vw;
+    margin-top: 15vw;
+}
+
+.placement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15vw;
+}
+
+.placement2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .submitit
 {
-    margin-left: 300px;
-    margin-right: 300px;
+    margin-left: 1vw;
+    margin-top: 10vw;
+    width: 98vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .label
@@ -485,22 +530,9 @@ h8
     cursor: pointer;
 }
 
-h5
-{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50%;
-    font: arial;
-    font-size: 15px;
-    color: #4E3524;
-    text-align: center;
-}
-
 .category
 {
-    width: 200%;
-    height: 100%;
-    font-size: 15px;
+    width: 20vw;
     font: arial;
     background-color: #FFFFFF;
     border: solid;
@@ -510,28 +542,34 @@ h5
     color: #4E3524;
 }
 
+.category:focus {
+    outline: none;
+    border: 2px solid #4E3524;
+}
+
 h6
 {
     font: arial;
-    font-size: 17px;
     color: #4E3524;
 }
 
 .submit .form
 {
     font: arial;
-    font-size: 15px;
     color: #000000;
-    width: 100%;
-    height: 100%;
+    width: 96.5%;
 }
 
 .form2
 {
     color: #000000;
-    font-size: 15px;
-    width: 100%;
-    height: 200px;
+    width: 97%;
+    height: 40vh;
+}
+
+.form2:focus {
+    outline: none;
+    border: 2px solid #4E3524;
 }
 
 #Acity
@@ -542,25 +580,22 @@ h6
 .inline1
 {
     font: arial;
-    font-size: 15px;
     color: #000000;
-    width: 78%;
+    width: 74%;
     height: auto;
 }
 
 .inline2
 {
     font: arial;
-    font-size: 15px;
     color: #000000;
-    width: 20%;
+    width: 22%;
     height: auto;
 }
 
 .message
 {
     font: arial;
-    font-size: 18px;
     color: #4E3524;
 }
 
@@ -572,22 +607,31 @@ h6
 
 .messagebox
 {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 7vw;
+    margin-right: 7vw;
     text-align: left;
+    width: 85vw;
+    margin-top: 5vw;
+}
+
+.middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
 }
 
 .checkbox
 {
-    width: 20px;
-    height: 20px;
+    width: 1.7vw;
+    height: 1.7vw;
     outline: 3px solid #4E3524;
     cursor: pointer;
 }
 
 .check
 {
-    font-size: 15px;
+    font-size: 1.7vw;
     font: arial;
     color: #4E3524;
 }
@@ -604,40 +648,80 @@ h6
     margin-left: 10%;
 }
 
+.provide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10vw;
+    width: 100%
+}
+
+.submit4
+{
+    margin-left: 4vw;
+    margin-right: 5vw;
+    width: 90vw;
+    margin-top: 5vw;
+}
+
+.provide2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.provide3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    margin-top: 5vw;
+}
+
 .inline3
 {
     font: arial;
-    font-size: 15px;
     color: #000000;
-    width: 90%;
+    width: 40vw;
     height: auto;
     background-color: #FFFFFF;
     border: solid;
     border-width: 2px;
     border-color: #d5ad6d;
     border-radius: 5px;
-    color: #4E3524;
+}
+
+.inline3:focus {
+    outline: none;
+    border: 2px solid #4E3524;
 }
 
 .inline4
 {
     font: arial;
-    font-size: 15px;
     color: #000000;
-    width: 90%;
+    width: 40vw;
     height: auto;
     background-color: #FFFFFF;
     border: solid;
     border-width: 2px;
     border-color: #d5ad6d;
     border-radius: 5px;
-    color: #4E3524;
+}
+
+.inline4:focus {
+    outline: none;
+    border: 2px solid #4E3524;
 }
 
 .submit2
 {
-    margin-left: 200px;
-    margin-right: 100px;
+    margin-left: 1vw;
+    width: 98vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .itable4
@@ -646,21 +730,22 @@ h6
     height: auto;
     position: relative;
     table-layout: fixed;
+    margin-top: 10vw;
 }
 
 .row
 {
-    height: 300px;
+    height: 45vw;
 }
 
 .row2
 {
-    height: 200px;
+    height: 30vw;
 }
 
 .column
 {
-    border-bottom: 40px solid #FFFFFF;
+    border-bottom: 0.5vw solid #FFFFFF;
 }
 
 .uploadimage7
@@ -687,8 +772,8 @@ h6
 .content4 .popuptext4
 {
     visibility: hidden;
-    width: 50%;
-    height: 50%;
+    width: 50vw;
+    height: 60vh;
     background-color: #FFFFFF;
     border-radius: 5px;
     border: solid;
@@ -699,9 +784,7 @@ h6
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 25px;
     cursor: pointer;
-    margin: 5px;
     text-align: center;
 }
 
@@ -710,22 +793,8 @@ h6
     visibility: visible;
 }
 
-.inline5
-{
-    font-size: 15px;
-    font: arial;
-    background-color: #FFFFFF;
-    border: solid;
-    border-width: 2px;
-    border-color: #d5ad6d;
-    border-radius: 5px;
-    color: #4E3524;
-    width: 20%;
-}
-
 .inline6
 {
-    font-size: 15px;
     font: arial;
     background-color: #FFFFFF;
     border: solid;
@@ -733,12 +802,16 @@ h6
     border-color: #d5ad6d;
     border-radius: 5px;
     color: #4E3524;
-    width: 50%;
+    width: 50vw;
+}
+
+.inline6:focus {
+    outline: none;
+    border: 2px solid #4E3524;
 }
 
 .inline7
 {
-    font-size: 10px;
     font: arial;
     background-color: #FFFFFF;
     border: solid;
@@ -749,18 +822,16 @@ h6
     width: 25%;
 }
 
-h9
+.h9
 {
-    font: arial;
-    font-size: 17px;
+    font-family: arial;
     color: #4E3524;
 }
 
 .textarea
 {
-    width: 100%;
-    height: 400px;
-    font-size: 15px;
+    width: 90%;
+    height: 50vw;
     font: arial;
     background-color: #FFFFFF;
     border: solid;
@@ -768,12 +839,25 @@ h9
     border-color: #d5ad6d;
     border-radius: 5px;
     color: #4E3524;
+    margin-top: 15vw;
+    margin-bottom: 5vw;
+    margin-left: 4vw;
+}
+
+.ratinginfo {
+    margin-left: 4vw;
+    margin-bottom: 5vw;
 }
 
 .submit3
 {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 4vw;
+    margin-right: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+
 }
 
 .itable5
@@ -781,25 +865,30 @@ h9
     height: auto;
     position: relative;
     table-layout: fixed;
-    margin-left: 10%;
-    margin-left: 10%;
-    width: 80%;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 5vw;
+    width: 80vw;
 }
 
 .row3
 {
-    height: inherit;
+    height: 20vw;
 }
 
 .column2
 {
-    border-bottom: 5px solid #d5ad6d;
+    border-bottom: 0.5vw solid #d5ad6d;
+}
+
+.column3
+{
+    border-bottom: 0.5vw solid #d5ad6d;
 }
 
 .text2
 {
     font: times new roman;
-    font-size: 16px;
     color: #000000;
 }
 
@@ -808,20 +897,15 @@ h9
     background-color: #FFFFFF;
     border: solid;
     border-width: 2px;
-    border-color: #8b4513;
+    color: #8b4513;
     border-radius: 5px;
     text-align: center;
-    font: arial;
-    color: #d5ad6d;
+    font-family: arial;
+    border-color: #d5ad6d;
     cursor: pointer;
-    font-size: 15px;
-}
-
-h10
-{
-    font: times new roman;
-    font-size: 17px;
-    color: #4E3524;
+    display: block;
+    margin: auto;
+    z-index: 3;
 }
 
 .star
@@ -829,10 +913,383 @@ h10
     accent-color: #d5ad6d;
 }
 
+.review {
+    margin-bottom: 10vw;
+}
+
+.btn-4
+{
+    background-color: #FFFFFF;
+    border: solid;
+    border-width: 2px;
+    text-align: center;
+    font: arial;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    z-index: 3;
+    font: arial;
+    border-color: #d5ad6d;
+    border-radius: 5px;
+    color: #4E3524;
+}
+
 .error
 {
     color: #000000;
     font: arial;
-    font-size: 20px;
     text-align: center;
+    margin-top: 20vw;
+    margin-bottom: 20vw;
+}
+
+@media only screen and (min-width: 1024px) {
+    h7 {
+        font-size: 2.6vw;
+    } h8 {
+        font-size: 1.4vw;
+    } .text {
+        font-size: 1.2vw;
+    } .text2 {
+        font-size: 1.5vw;
+    } .content .popuptext {
+        padding: 2vw;
+        min-width: 50vw;
+        max-height: 60vh;
+    } .content2 .popuptext2 {
+        padding: 2vw;
+        min-width: 50vw;
+        max-height: 60vh;
+    } .content3 .popuptext3 {
+        padding: 2vw;
+        min-width: 50vw;
+        max-height: 60vh;
+    } .content4 .popuptext4 {
+        padding: 2vw;
+        min-width: 50vw;
+        max-height: 60vh;
+    } header {
+        height: 7vw;
+    } h1 {
+        font-size: 1.8vw;
+        padding-top: 1vw;
+    } h2 {
+        font-size: 1.2vw;
+        padding-bottom: 1vw;
+    } h3 {
+        font-size: 1.9vw;
+        padding-left: 6vw;
+    } #nav-title {
+        height: 7vw;
+    } #nav-icon {
+        height: 7vw;
+    } #nav-icon2 {
+        max-height: 7vw;
+    } .nav-link {
+        font-size: 2.1vw;
+    } .btn2 {
+        font-size: 1.2vw
+    } .inline3 {
+        font-size: 1.2vw;
+    } .inline4 {
+        font-size: 1.2vw;
+    } .btn {
+        font-size: 1.2vw;
+    } .btn-5 {
+        font-size: 1.2vw;
+    } .category {
+        font-size: 1.2vw;
+    } h6 {
+        font-size: 1.4vw;
+    } .submit .form {
+        font-size: 1.2vw;
+    } .inline1 {
+        font-size: 1.2vw;
+    } .inline2 {
+        font-size: 1.2vw;
+    } .form2 {
+        font-size: 1.2vw;
+    } h9 {
+        font-size: 1.2vw;
+    } .inline6 {
+        font-size: 1.2vw;
+    } .textarea {
+        font-size: 1.2vw;
+    } .error {
+        font-size: 1.5vw;
+    } .btn-3 {
+        font-size: 1.2vw;
+    } .btn-4 {
+        font-size: 1.2vw;
+    } #flag {
+        width: 4vw;
+    } .message {
+        font-size: 1.4vw;
+    } .inline7 {
+        font-size: 1.2vw;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    h7 {
+        font-size: 2.7vw;
+    } h8 {
+        font-size: 1.7vw;
+    } .text {
+        font-size: 1.4vw;
+    } .text2 {
+        font-size: 1.7vw;
+    } .content .popuptext {
+        padding: 1.5vw;
+        min-width: 50vw;
+        max-height: 50vh;
+    } .content2 .popuptext2 {
+        padding: 1.5vw;
+        min-width: 50vw;
+        max-height: 50vh;
+    } .content3 .popuptext3 {
+        padding: 1.5vw;
+        min-width: 50vw;
+        max-height: 50vh;
+    } .content4 .popuptext4 {
+        padding: 1.5vw;
+        min-width: 50vw;
+        max-height: 50vh;
+    } header{
+        height: 7.5vw;
+    } h1 {
+        font-size: 2vw;
+        padding-top: 1.1vw;
+    } h2 {
+        font-size: 1.4vw;
+        padding-bottom: 1.1vw;
+    } h3 {
+        font-size: 2.1vw;
+        padding-left: 7vw;
+    } #nav-title {
+        height: 7.5vw;
+    } #nav-icon {
+        height: 7.5vw;
+    } #nav-icon2 {
+        max-height: 7.5vw;
+    } .nav-link {
+        font-size: 2.3vw;
+    } .btn2 {
+        font-size: 1.4vw
+    } .inline3 {
+        font-size: 1.5vw;
+    } .inline4 {
+        font-size: 1.5vw;
+    } .btn {
+        font-size: 1.5vw;
+    } .btn-5 {
+        font-size: 1.5vw;
+    } .category {
+        font-size: 1.4vw;
+    } h6 {
+        font-size: 1.7vw;
+    } .submit .form {
+        font-size: 1.5vw;
+    } .inline1 {
+        font-size: 1.5vw;
+    } .inline2 {
+        font-size: 1.5vw;
+    } .form2 {
+        font-size: 1.5vw;
+    } h9 {
+        font-size: 1.5vw;
+    } .inline6 {
+        font-size: 1.5vw;
+    } .textarea {
+        font-size: 1.5vw;
+    } .error {
+        font-size: 1.7vw;
+    } .btn-3 {
+        font-size: 1.5vw;
+    } .btn-4 {
+        font-size: 1.5vw;
+    } #flag {
+        width: 5vw;
+    } .message {
+        font-size: 1.7vw;
+    } .inline7 {
+        font-size: 1.4vw;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 768px) {
+    h7 {
+        font-size: 2.9vw;
+    } h8 {
+        font-size: 2vw;
+    } .text {
+        font-size: 1.7vw;
+    } .text2 {
+        font-size: 2vw;
+    } .content .popuptext {
+        padding: 1.5vw;
+        min-width: 60vw;
+        max-height: 50vh;
+    } .content2 .popuptext2 {
+        padding: 1.5vw;
+        min-width: 60vw;
+        max-height: 50vh;
+    } .content3 .popuptext3 {
+        padding: 1.5vw;
+        min-width: 60vw;
+        max-height: 50vh;
+    } .content4 .popuptext4 {
+        padding: 1.5vw;
+        min-width: 60vw;
+        max-height: 50vh;
+    } header{
+        height: 8vw;
+    } h1 {
+        font-size: 2vw;
+        padding-top: 1.2vw;
+    } h2 {
+        font-size: 1.5vw;
+        padding-bottom: 1.2vw;
+    } h3 {
+        font-size: 2.1vw;
+        padding-left: 8vw;
+    } #nav-title {
+        height: 8vw;
+    } #nav-icon {
+        height: 8vw;
+    } #nav-icon2 {
+        max-height: 8vw;
+    } .nav-link {
+        font-size: 2.5vw;
+    } .btn2 {
+        font-size: 1.7vw
+    } .inline3 {
+        font-size: 1.8vw;
+    } .inline4 {
+        font-size: 1.8vw;
+    } .btn {
+        font-size: 1.8vw;
+    } .btn-5 {
+        font-size: 1.8vw;
+    } .category {
+        font-size: 1.7vw;
+    } h6 {
+        font-size: 2.1vw;
+    } .submit .form {
+        font-size: 1.9vw;
+    } .inline1 {
+        font-size: 1.9vw;
+    } .inline2 {
+        font-size: 1.9vw;
+    } .form2 {
+        font-size: 1.9vw;
+    } h9 {
+        font-size: 1.9vw;
+    } .inline6 {
+        font-size: 1.9vw;
+    } .textarea {
+        font-size: 1.9vw;
+    } .error {
+        font-size: 2vw;
+    } .btn-3 {
+        font-size: 1.9vw;
+    } .btn-4 {
+        font-size: 1.9vw;
+    } #flag {
+        width: 6vw;
+    } .message {
+        font-size: 2.1vw;
+    } .inline7 {
+        font-size: 1.7vw;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    h7 {
+        font-size: 3.2vw;
+    } h8 {
+        font-size: 2.3vw;
+    } .text {
+        font-size: 2vw;
+    } .text2 {
+        font-size: 2.3vw;
+    } .content .popuptext {
+        padding: 2vw;
+        min-width: 60vw;
+        max-height: 50vh;
+    } .content2 .popuptext2 {
+        padding: 2vw;
+        min-width: 60vw;
+        max-height: 50vh;
+    } .content3 .popuptext3 {
+        padding: 2vw;
+        min-width: 60vw;
+        max-height: 50vh;
+    } .content4 .popuptext4 {
+        padding: 2vw;
+        min-width: 60vw;
+        max-height: 50vh;
+    } header{
+        height: 9.5vw;
+    } h1 {
+        font-size: 2.2vw;
+        padding-top: 1.2vw;
+    } h2 {
+        font-size: 1.8vw;
+        padding-bottom: 1.2vw;
+    } h3 {
+        font-size: 2.4vw;
+        padding-left: 10vw;
+    } #nav-title {
+        height: 9.5vw;
+    } #nav-icon {
+        height: 9.5vw;
+    } #nav-icon2 {
+        max-height: 9.5vw;
+    } .nav-link {
+        font-size: 3vw;
+    } nav {
+        width: 35vw;
+        margin-left: -1.3vw;
+    } .btn2 {
+        font-size: 2vw
+    } .inline3 {
+        font-size: 2.1vw;
+    } .inline4 {
+        font-size: 2.1vw;
+    } .btn {
+        font-size: 2.1vw;
+    } .btn-5 {
+        font-size: 2.1vw;
+    } .category {
+        font-size: 2vw;
+    } h6 {
+        font-size: 2.4vw;
+    } .submit .form {
+        font-size: 2.2vw;
+    } .inline1 {
+        font-size: 2.2vw;
+    } .inline2 {
+        font-size: 2.2vw;
+    } .form2 {
+        font-size: 2.2vw;
+    } h9 {
+        font-size: 2.2vw;
+    } .inline6 {
+        font-size: 2.2vw;
+    } .textarea {
+        font-size: 2.2vw;
+    } .error {
+        font-size: 2.3vw;
+    } .btn-3 {
+        font-size: 2.2vw;
+    } .btn-4 {
+        font-size: 2.2vw;
+    } #flag {
+        width: 7vw;
+    } .message {
+        font-size: 2.4vw;
+    } .inline7 {
+        font-size: 2vw;
+    }
 }

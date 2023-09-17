@@ -20,14 +20,8 @@
                     {% endfor %}
                 </select>
             </p>
-            If title already exists return to our <a class="link" href="/"> Homepage </a>
+            If title already exists return to our <a class="link" href="/" onclick="load()"> Homepage </a>
         </h2>
-
-
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
 
         <div class="submitit">
             <div class="dropdown-menu">
@@ -40,19 +34,16 @@
             </div>
         </div>
 
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-
         <form action="/submit" method="post" class="submit" id="form1" style="display: none" enctype="multipart/form-data">
 
             <div id="Book" name="Book" value="Book"></div>
 
-            <div class="uploadimage">
-                <input type="file"  accept="image/*" name="image" id="image" onchange="loadFile(event)" style="display: none;" required>
-                <label for="image" class="imagelabel" id="imagelabel"><h6>Upload Image</h6></label>
-                <image id="actualimage" name="actualimage" class="actualimage"></image>
+            <div class="placement">
+                <div class="uploadimage">
+                    <input type="file"  accept="image/*" name="image" id="image" onchange="loadFile(event)" style="display: none;" required>
+                    <label for="image" class="imagelabel" id="imagelabel"><h6>Upload Image</h6></label>
+                    <image id="actualimage" name="actualimage" class="actualimage"></image>
+                </div>
             </div>
 
             <script>
@@ -67,25 +58,22 @@
                 };
             </script>
 
-            <br></br>
-            <br></br>
-
             <div style="display: none">
                 <input class="form" id="type" name="type" value="Book">Book</input>
             </div>
 
             <div>
-                <h6>Title:</h6>
+                <h6>Title</h6>
                 <input class="form" id="title" name="title" placeholder="Title" type="text" autocomplete="off" required>
             </div>
 
             <div>
-                <h6>Year:</h6>
+                <h6>Year</h6>
                 <input class="form" id="year" name="year" placeholder="Year" type="text" autocomplete="off" required>
             </div>
 
             <div>
-                <h6>Author:</h6>
+                <h6>Author</h6>
                 <input class="form" id="author" name="author" placeholder="Author" type="text" autocomplete="off" required>
             </div>
 
@@ -145,23 +133,23 @@
 
             </div>
 
-            <br></br>
-            <br></br>
-
-            <button class="btn" type="submit">Submit Recommendation</button>
+            <div class="placement2">
+                <button class="btn-5" type="submit" onclick="load()">Submit Recommendation</button>
+            </div>
 
         </form>
-
 
 
         <form action="/submit" method="post" class="submit" id="form2" style="display: none" enctype="multipart/form-data">
 
             <div id="Movie" name="Movie" value="Movie"></div>
 
-            <div class="uploadimage2">
-                <input type="file"  accept="image/*" name="image2" id="image2" onchange="loadFile2(event)" style="display: none;" required>
-                <label for="image2" class="imagelabel2" id="imagelabel2"><h6>Upload Image</h6></label>
-                <image id="actualimage2" name="actualimage2" class="actualimage2"></image>
+            <div class="placement">
+                <div class="uploadimage2">
+                    <input type="file"  accept="image/*" name="image2" id="image2" onchange="loadFile2(event)" style="display: none;" required>
+                    <label for="image2" class="imagelabel2" id="imagelabel2"><h6>Upload Image</h6></label>
+                    <image id="actualimage2" name="actualimage2" class="actualimage2"></image>
+                </div>
             </div>
 
             <script>
@@ -174,25 +162,22 @@
                 };
             </script>
 
-            <br></br>
-            <br></br>
-
             <div style="display: none">
                 <input class="form" id="type" name="type" value="Movie">Movie</input>
             </div>
 
             <div>
-                <h6>Title:</h6>
+                <h6>Title</h6>
                 <input class="form" id="title" name="title" placeholder="Title" type="text" autocomplete="off" required>
             </div>
 
             <div>
-                <h6>Year:</h6>
+                <h6>Year</h6>
                 <input class="form" id="year" name="year" placeholder="Year" type="text" autocomplete="off" required>
             </div>
 
             <div>
-                <h6>Screenwriter:</h6>
+                <h6>Screenwriter</h6>
                 <input class="form" id="screenwriter" name="screenwriter" placeholder="Screenwriter" type="text" autocomplete="off" required>
             </div>
 
@@ -252,23 +237,23 @@
 
             </div>
 
-            <br></br>
-            <br></br>
-
-            <button class="btn" type="submit">Submit Recommendation</button>
+            <div class="placement2">
+                <button class="btn-5" type="submit" onclick="load()">Submit Recommendation</button>
+            </div>
 
         </form>
-
 
 
         <form action="/submit" method="post" class="submit" id="form3" style="display: none" enctype="multipart/form-data">
 
             <div id="Series" name="Series" value="Series"></div>
 
-            <div class="uploadimage3">
-                <input type="file"  accept="image/*" name="image3" id="image3" onchange="loadFile3(event)" style="display: none;" required>
-                <label for="image3" class="imagelabel3" id="imagelabel3"><h6>Upload Image</h6></label>
-                <image id="actualimage3" name="actualimage3" class="actualimage3"></image>
+            <div class="placement">
+                <div class="uploadimage3">
+                    <input type="file"  accept="image/*" name="image3" id="image3" onchange="loadFile3(event)" style="display: none;" required>
+                    <label for="image3" class="imagelabel3" id="imagelabel3"><h6>Upload Image</h6></label>
+                    <image id="actualimage3" name="actualimage3" class="actualimage3"></image>
+                </div>
             </div>
 
             <script>
@@ -281,25 +266,22 @@
                 };
             </script>
 
-            <br></br>
-            <br></br>
-
             <div style="display: none">
                 <input class="form" id="type" name="type" value="Serie">Series</input>
             </div>
 
             <div>
-                <h6>Title:</h6>
+                <h6>Title</h6>
                 <input class="form" id="title" name="title" placeholder="Title" type="text" autocomplete="off" required>
             </div>
 
             <div>
-                <h6>Year:</h6>
+                <h6>Year</h6>
                 <input class="form" id="year" name="year" placeholder="Year" type="text" autocomplete="off" required>
             </div>
 
             <div>
-                <h6>Screenwriter:</h6>
+                <h6>Screenwriter</h6>
                 <input class="form" id="screenwriter" name="screenwriter" placeholder="Screenwriter" type="text" autocomplete="off" required>
             </div>
 
@@ -360,17 +342,13 @@
                 </script>
             </div>
 
-            <br></br>
-            <br></br>
-
-            <button class="btn" type="submit">Submit Recommendation</button>
+            <div class="placement2">
+                <button class="btn-5" type="submit" onclick="load()">Submit Recommendation</button>
+            </div>
 
         </form>
 
     </body>
-
-    <br></br>
-    <br></br>
 
     <script>
 

@@ -10,14 +10,10 @@
 
 {% block main %}
 
-    <form action="/review" method="post" class="submit" id="form">
+    <form action="/review" method="post" class="submit4" id="form">
 
-        <div>
-
-            <br></br>
-            <br></br>
-
-            <h9>
+        <div class="provide2">
+            <h9 class="h9">
                 Review
                 <select class="inline6" id="title" name="title" onchange="show()" required>
                     <option disabled selected value="">Title</option>
@@ -28,39 +24,30 @@
             </h9>
         </div>
 
-        <div id="review" style="display: none">
-
-            <br></br>
-            <br></br>
+        <div class="review" id="review" style="display: none">
 
             <textarea class="textarea" id="text" name="text" placeholder="Review" type="text" autocomplete="off" maxlength="1000" required></textarea>
 
-            <br></br>
+            <div class="ratinginfo">
+                <h9 class="h9">Rating:</h9>
 
-            <h10>Rating:</h10>
-
-            <div class="stars" style="display: inline">
-                <input class="star" id="star1" type="radio" value="1" name="star"/>
-                <label class="star" for="star1"></label>
-                <input class="star" id="star2" type="radio" value="2" name="star"/>
-                <label class="star" for="star2"></label>
-                <input class="star" id="star3" type="radio" value="3" name="star"/>
-                <label class="star" for="star3"></label>
-                <input class="star" id="star4" type="radio" value="4" name="star"/>
-                <label class="star" for="star4"></label>
-                <input class="star" id="star5" type="radio" value="5" name="star"/>
-                <label class="star" for="star5"></label>
+                <div class="stars" style="display: inline">
+                    <input class="star" id="star1" type="radio" value="1" name="star"/>
+                    <label class="star" for="star1"></label>
+                    <input class="star" id="star2" type="radio" value="2" name="star"/>
+                    <label class="star" for="star2"></label>
+                    <input class="star" id="star3" type="radio" value="3" name="star"/>
+                    <label class="star" for="star3"></label>
+                    <input class="star" id="star4" type="radio" value="4" name="star"/>
+                    <label class="star" for="star4"></label>
+                    <input class="star" id="star5" type="radio" value="5" name="star"/>
+                    <label class="star" for="star5"></label>
+                </div>
             </div>
 
-            <br></br>
-            <br></br>
-
-            <button class="btn btn-2" id="reviewbutton" type="submit">Submit Review</button>
+            <button class="btn btn-2" id="reviewbutton" type="submit" onclick="load()">Submit Review</button>
 
         </div>
-
-        <br></br>
-        <br></br>
 
     </form>
 

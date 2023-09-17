@@ -1,9 +1,5 @@
 {% extends "layout.html" %}
 
-<script>
-
-</script>
-
 {% block title %}
 
     <h4>Search recommendations by location</h4>
@@ -16,29 +12,27 @@
 
         <br></br>
 
-        <div class="box">
-            <input class="checkbox" type="checkbox" id="city" name="city" onclick="choose()">
-            <label class="check" for="city">City</label>
-        </div>
-
-        <div class="fbox">
-            <input class="checkbox" type="checkbox" id="country" name="country" onclick="choose()">
-            <label class="check" for="country">Country</label>
+        <div class="middle">
+            <div class="box">
+                <input class="checkbox" type="checkbox" id="city" name="city" onclick="checkingcity()">
+                <label class="check" for="city">City</label>
+            </div>
+    
+            <div class="fbox">
+                <input class="checkbox" type="checkbox" id="country" name="country" onclick="checkingcountry()">
+                <label class="check" for="country">Country</label>
+            </div>
         </div>
 
         <form action="/search" method="post" class="submit2" id="form1" style="display: none" enctype="multipart/form-data">
-
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
 
             <div style="display: none">
                 <input id="type" name="type" value="Country">Country</input>
             </div>
 
-            <div>
+            <br></br>
+
+            <div class="provide">
                 <select class="inline3" id="country" name="country" required>
                     <option disabled selected value="">Country</option>
                     {% for country in countries %}
@@ -49,7 +43,7 @@
                 <br></br>
 
                 <div>
-                    <button class="btn btn-1" id="search" type="submit">Search</button>
+                    <button class="btn btn-1" id="search" type="submit" onclick="load()">Search</button>
                 </div>
             </div>
 
@@ -59,22 +53,17 @@
 
         <form action="/search" method="post" class="submit2" id="form2" style="display: none" enctype="multipart/form-data">
 
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-
             <div style="display: none">
                 <input id="type" name="type" value="City">City</input>
             </div>
 
-            <div>
+            <div class="provide">
                 <input class="inline4" id="city" name="city" placeholder="City" type="text" autocomplete="off" required>
 
                 <br></br>
 
                 <div>
-                    <button class="btn btn-1" id="search" type="submit">Search</button>
+                    <button class="btn btn-1" id="search" type="submit" onclick="load()">Search</button>
                 </div>
             </div>
 
@@ -82,10 +71,6 @@
 
 
         <table class="itable4">
-
-            <br></br>
-            <br></br>
-            <br></br>
 
             <tbody>
 
@@ -115,7 +100,7 @@
                                         <p class="text"><h8>Characters/Cast:</h8> {{row['charactercast1']}}, {{row['charactercast2']}}</p>
                                         <p class="text"><h8>Creator/Author:</h8> {{row['authorscreenwriter']}} ({{row['acity']}}, {{row['acountry']}})</p>
                                         <p class="text"><h8>Setting:</h8> {{row['scity']}}, {{row['scountry']}}</p>
-                                        <button class="btn-2" name="reviews" type="submit" style="display: inline" onclick="reviews()"> Read Reviews </button>
+                                        <button class="btn-2" name="reviews" type="submit" style="display: inline" onclick="reviews() ; load()"> Read Reviews </button>
                                         <br></br>
                                     </div>
                                 </span>
@@ -152,46 +137,43 @@
             </tbody>
         </table>
 
-        <br></br>
-
         <div class="error">
             {{error}}
         </div>
 
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-
         <script>
 
-            function choose()
+            function checkingcountry()
             {
                 var city = document.getElementById('city');
-                var country = document.getElementById('country');
-
-                var form1 = document.getElementById('form1');
                 var form2 = document.getElementById('form2');
+                if (city.checked == true) {
+                    city.checked = false
+                    form2.style.display = "none"
+                }
+                var country = document.getElementById('country');
+                var form1 = document.getElementById('form1');
+                if (country.checked == true) {
+                    form1.style.display = "block"
+                } else {
+                    form1.style.display = "none"
+                }
+            }
 
-                if (country.checked == true)
-                {
-                    form1.style.display = "block";
-                    form2.style.display = "none";
+            function checkingcity()
+            {
+                var country = document.getElementById('country');
+                var form1 = document.getElementById('form1');
+                if (country.checked == true) {
+                    country.checked = false
+                    form1.style.display = "none"
                 }
-                else if (city.checked == true)
-                {
-                    form2.style.display = "block";
-                    form1.style.display = "none";
-                }
-                else if (country.checked == false)
-                {
-                    form1.style.display = "none";
-                    form2.style.display = "none";
-                }
-                else if (city.checked == false)
-                {
-                    form2.style.display = "none";
-                    form1.style.display = "none";
+                var city = document.getElementById('city');
+                var form2 = document.getElementById('form2');
+                if (city.checked == true) {
+                    form2.style.display = "block"
+                } else {
+                    form2.style.display = "none"
                 }
             }
 
