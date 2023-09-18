@@ -18,10 +18,10 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 # Configure database of series books and movies
 db = SQL("postgresql://series_books_movies_user:haUm5KfzruPNkHgssRGo8HJMnnhtcbiK@dpg-cjc6chk5kgrc739h0qd0-a/series_books_movies")
 
-db.execute("CREATE TABLE IF NOT EXISTS books (image TEXT, data BYTEA, title TEXT, year INTEGER, author TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, character1 TEXT, character2 TEXT)")
-db.execute("CREATE TABLE IF NOT EXISTS movies (image TEXT, data BYTEA, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
-db.execute("CREATE TABLE IF NOT EXISTS series (image TEXT, data BYTEA, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
-db.execute("CREATE TABLE IF NOT EXISTS results (image TEXT, data BYTEA, title TEXT, year INTEGER, authorscreenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, charactercast1 TEXT, charactercast2 TEXT)")
+db.execute("CREATE TABLE IF NOT EXISTS books (image TEXT, title TEXT, year INTEGER, author TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, character1 TEXT, character2 TEXT, data BYTEA)")
+db.execute("CREATE TABLE IF NOT EXISTS movies (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT, data BYTEA)")
+db.execute("CREATE TABLE IF NOT EXISTS series (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT, data BYTEA)")
+db.execute("CREATE TABLE IF NOT EXISTS results (image TEXT, title TEXT, year INTEGER, authorscreenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, charactercast1 TEXT, charactercast2 TEXT, data BYTEA)")
 db.execute("CREATE TABLE IF NOT EXISTS reviews (title TEXT, review TEXT, rating INTEGER)")
 db.execute("CREATE TABLE IF NOT EXISTS titles (title TEXT, category TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS countries (country TEXT)")
@@ -101,21 +101,21 @@ def search():
 
             city = request.form.get("city").title();
 
-            db.execute("INSERT INTO results (image, data, title, year, authorscreenwriter, acountry, acity, scountry, scity, description, charactercast1, charactercast2) SELECT * FROM series WHERE acity = ? OR scity = ?", city, city)
+            db.execute("INSERT INTO results (image, title, year, authorscreenwriter, acountry, acity, scountry, scity, description, charactercast1, charactercast2, data) SELECT * FROM series WHERE acity = ? OR scity = ?", city, city)
 
-            db.execute("INSERT INTO results (image, data, title, year, authorscreenwriter, acountry, acity, scountry, scity, description, charactercast1, charactercast2) SELECT * FROM movies WHERE acity = ? OR scity = ?", city, city)
+            db.execute("INSERT INTO results (image, title, year, authorscreenwriter, acountry, acity, scountry, scity, description, charactercast1, charactercast2, data) SELECT * FROM movies WHERE acity = ? OR scity = ?", city, city)
 
-            db.execute("INSERT INTO results (image, data, title, year, authorscreenwriter, acountry, acity, scountry, scity, description, charactercast1, charactercast2) SELECT * FROM books WHERE acity = ? OR scity = ?", city, city)
+            db.execute("INSERT INTO results (image, title, year, authorscreenwriter, acountry, acity, scountry, scity, description, charactercast1, charactercast2, data) SELECT * FROM books WHERE acity = ? OR scity = ?", city, city)
 
         elif search == "Country":
 
             country = request.form.get("country");
 
-            db.execute("INSERT INTO results (image, data, title, year, authorscreenwriter, acountry, acity, scountry, scity, description, charactercast1, charactercast2) SELECT * FROM series WHERE acountry = ? OR scountry = ?", country, country)
+            db.execute("INSERT INTO results (image, title, year, authorscreenwriter, acountry, acity, scountry, scity, description, charactercast1, charactercast2, data) SELECT * FROM series WHERE acountry = ? OR scountry = ?", country, country)
 
-            db.execute("INSERT INTO results (image, data, title, year, authorscreenwriter, acountry, acity, scountry, scity, description, charactercast1, charactercast2) SELECT * FROM movies WHERE acountry = ? OR scountry = ?", country, country)
+            db.execute("INSERT INTO results (image, title, year, authorscreenwriter, acountry, acity, scountry, scity, description, charactercast1, charactercast2, data) SELECT * FROM movies WHERE acountry = ? OR scountry = ?", country, country)
 
-            db.execute("INSERT INTO results (image, data, title, year, authorscreenwriter, acountry, acity, scountry, scity, description, charactercast1, charactercast2) SELECT * FROM books WHERE acountry = ? OR scountry = ?", country, country)
+            db.execute("INSERT INTO results (image, title, year, authorscreenwriter, acountry, acity, scountry, scity, description, charactercast1, charactercast2, data) SELECT * FROM books WHERE acountry = ? OR scountry = ?", country, country)
 
         results = db.execute("SELECT * FROM results ORDER BY title ASC")
 
@@ -167,7 +167,7 @@ def submit():
 
             d = request.form.get("cast member").title()
 
-            db.execute("INSERT INTO movies (image, data, title, year, screenwriter, acountry, acity, scountry, scity, description, cast1, cast2) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", path, imagedata, title, year, screenwriter, author_country, author_city, setting_country, setting_city, description, c, d)
+            db.execute("INSERT INTO movies (image, title, year, screenwriter, acountry, acity, scountry, scity, description, cast1, cast2, data) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", path, title, year, screenwriter, author_country, author_city, setting_country, setting_city, description, c, d, imagedata)
             
             db.execute("INSERT INTO titles (title, category) VALUES (?,?)", title, category)
 
@@ -183,7 +183,7 @@ def submit():
 
             d = request.form.get("character").title()
 
-            db.execute("INSERT INTO books (image, data, title, year, author, acountry, acity, scountry, scity, description, character1, character2) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", path, imagedata, title, year, author, author_country, author_city, setting_country, setting_city, description, c, d)
+            db.execute("INSERT INTO books (image, title, year, author, acountry, acity, scountry, scity, description, character1, character2, data) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", path, title, year, author, author_country, author_city, setting_country, setting_city, description, c, d, imagedata)
 
             db.execute("INSERT INTO titles (title, category) VALUES (?,?)", title, category)
 
@@ -199,7 +199,7 @@ def submit():
 
             d = request.form.get("cast member").title()
 
-            db.execute("INSERT INTO series (image, data, title, year, screenwriter, acountry, acity, scountry, scity, description, cast1, cast2) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", path, imagedata, title, year, screenwriter, author_country, author_city, setting_country, setting_city, description, c, d)
+            db.execute("INSERT INTO series (image, title, year, screenwriter, acountry, acity, scountry, scity, description, cast1, cast2, data) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", path, title, year, screenwriter, author_country, author_city, setting_country, setting_city, description, c, d, imagedata)
 
             db.execute("INSERT INTO titles (title, category) VALUES (?,?)", title, category)
             
