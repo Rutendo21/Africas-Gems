@@ -1,6 +1,7 @@
 import csv
 import os
 from io import BytesIO
+import base64
 from cs50 import SQL
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
@@ -61,7 +62,7 @@ def homepage():
         for book in books:
             book['data'] = BytesIO(book['data'])
         for serie in series:
-            serie['data'] = BytesIO(serie['data'])
+            serie['data'] = base64.b64encode(BytesIO(serie['data']))
         
         return render_template("homepage.html", movies=movies, books=books, series=series)
 
