@@ -18,10 +18,10 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 # Configure database of series books and movies
 db = SQL("postgresql://series_books_movies_user:haUm5KfzruPNkHgssRGo8HJMnnhtcbiK@dpg-cjc6chk5kgrc739h0qd0-a/series_books_movies")
 
-db.execute("CREATE TABLE IF NOT EXISTS books (image TEXT, data LARGEBINARY, title TEXT, year INTEGER, author TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, character1 TEXT, character2 TEXT)")
-db.execute("CREATE TABLE IF NOT EXISTS movies (image TEXT, data LARGEBINARY, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
-db.execute("CREATE TABLE IF NOT EXISTS series (image TEXT, data LARGEBINARY, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
-db.execute("CREATE TABLE IF NOT EXISTS results (image TEXT, data LARGEBINARY, title TEXT, year INTEGER, authorscreenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, charactercast1 TEXT, charactercast2 TEXT)")
+db.execute("CREATE TABLE IF NOT EXISTS books (image TEXT, data BYTEA, title TEXT, year INTEGER, author TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, character1 TEXT, character2 TEXT)")
+db.execute("CREATE TABLE IF NOT EXISTS movies (image TEXT, data BYTEA, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
+db.execute("CREATE TABLE IF NOT EXISTS series (image TEXT, data BYTEA, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
+db.execute("CREATE TABLE IF NOT EXISTS results (image TEXT, data BYTEA, title TEXT, year INTEGER, authorscreenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, charactercast1 TEXT, charactercast2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS reviews (title TEXT, review TEXT, rating INTEGER)")
 db.execute("CREATE TABLE IF NOT EXISTS titles (title TEXT, category TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS countries (country TEXT)")
