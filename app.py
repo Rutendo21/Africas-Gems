@@ -15,7 +15,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 # Configure database of series books and movies
-db = SQL("postgres://seriesmoviesbooks_user:O4j4f5dZFtiG5kegyrMG23SVB4jvE4vl@dpg-cl95qvlo7jlc7390q2ig-a/seriesmoviesbooks")
+db = SQL("postgresql://seriesmoviesbooks_user:O4j4f5dZFtiG5kegyrMG23SVB4jvE4vl@dpg-cl95qvlo7jlc7390q2ig-a/seriesmoviesbooks")
 
 db.execute("CREATE TABLE IF NOT EXISTS books (image TEXT, title TEXT, year INTEGER, author TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, character1 TEXT, character2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS movies (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
