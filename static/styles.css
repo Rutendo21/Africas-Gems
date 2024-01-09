@@ -36,8 +36,6 @@ header
     vertical-align: center;
     width: 98vw;
     z-index: 2;
-    margin-top: 0;
-    padding-top: 0
 }
 
 body
@@ -45,8 +43,6 @@ body
     background-color: #FFFFFF;
     overflow-x: hidden;
     margin-bottom: 10vw;
-    margin-top: 0;
-    padding-top: 0
 }
 
 h1

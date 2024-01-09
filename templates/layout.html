@@ -109,6 +109,17 @@
         </main>
 
         <script>
+            document.onreadystatechange = function() {
+                if (document.readyState !== "complete") {
+                    document.querySelector("body").style.visibility = "hidden";
+                    document.querySelector("body").style.overflowY = "hidden";
+                    document.querySelector("#loading").style.visibility = "visible";
+                } else {
+                    document.querySelector("body").style.overflowY = "scroll";
+                    document.querySelector("#loading").style.display = "none";
+                }
+            }
+
             function load() {
                 document.querySelector("#loading").style.display = "block";
                 document.querySelector("body").style.overflow = "hidden";
