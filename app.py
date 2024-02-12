@@ -1,5 +1,6 @@
 import csv
 import os
+import config
 from cs50 import SQL
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
@@ -15,7 +16,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 # Configure database of series books and movies
-db = SQL("postgresql://series_movies_books_user:IUoRqo2suDWAw59W1gVsmhaME6OmPvJh@dpg-cn4rb0ol5elc73ctbmsg-a/series_movies_books")
+db = SQL(config.database_name)
 
 db.execute("CREATE TABLE IF NOT EXISTS books (image TEXT, title TEXT, year INTEGER, author TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, character1 TEXT, character2 TEXT)")
 db.execute("CREATE TABLE IF NOT EXISTS movies (image TEXT, title TEXT, year INTEGER, screenwriter TEXT, acountry TEXT, acity TEXT, scountry TEXT, scity TEXT, description TEXT, cast1 TEXT, cast2 TEXT)")
